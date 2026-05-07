@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>直播间开播监控</title>
+<style>
+  :root {
+    --bg: #0f0f11;
+    --card-bg: #1a1a1e;
+    --card-border: #2a2a30;
+    --text: #e8e8ea;
+    --text-secondary: #88889a;
+    --live-color: #00d45a;
+    --offline-color: #555;
+    --accent: #fb7299;
+    --bili-blue: #00a1d6;
+    --warn: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+  .header {
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fb7299, #00a1d6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .status-summary { font-size: 14px; color: var(--text-secondary); }
+  .status-summary .count-live { color: var(--live-color); font-weight: 600; }
+  .btn {
+    padding: 8px 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .last-update { font-size: 13px; color: var(--text-secondary); }
+
+  /* 通知横幅 */
+  .notice {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: none;
+  }
+  .notice.warn { display: block; background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.3); color: var(--warn); }
+  .notice.error { display: block; background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #ef4444; }
+  .notice a { color: inherit; }
+
+  /* 配置面板 */
+  .config-bar {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 16px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+  }
+  .config-bar summary {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-secondary);
+    user-select: none;
+  }
+  .config-bar summary:hover { color: var(--text); }
+  .config-content { margin-top: 12px; }
+  .config-content textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    background: #0a0a0c;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: "Cascadia Code", "Fira Code", monospace;
+    resize: vertical;
+    line-height: 1.6;
+  }
+  .config-content textarea:focus { outline: none; border-color: var(--accent); }
+  .config-hint {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .config-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+  }
+  .proxy-config {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .proxy-config input {
+    flex: 1;
+    padding: 6px 10px;
+    background: #0a0a0c;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: monospace;
+  }
+  .proxy-config input:focus { outline: none; border-color: var(--accent); }
+
+  /* 房间网格 */
+  .rooms-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .room-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color .2s, box-shadow .2s;
+    position: relative;
+  }
+  .room-card:hover { border-color: #444; }
+  .room-card.live {
+    border-color: var(--live-color);
+    box-shadow: 0 0 20px rgba(0, 212, 90, .08);
+  }
+
+  .cover-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #121214;
+    overflow: hidden;
+  }
+  .cover-wrap img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cover-wrap .placeholder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 48px;
+  }
+
+  .live-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .live-badge.live {
+    background: rgba(0, 212, 90, .9);
+    color: #fff;
+  }
+  .live-badge.live::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  .live-badge.offline {
+    background: rgba(85, 85, 85, .85);
+    color: #aaa;
+  }
+  .live-badge.replay {
+    background: rgba(251, 114, 153, .85);
+    color: #fff;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .3; }
+  }
+
+  .viewer-count {
+    position: absolute;
+    bottom: 10px; right: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .room-info {
+    padding: 14px 16px;
+  }
+  .room-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .room-title.offline-title { color: var(--text-secondary); }
+  .room-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .room-owner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+  .room-owner .avatar {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #2a2a30;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .room-owner .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .room-owner span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .platform-tag {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .platform-tag.bilibili { background: rgba(0,161,214,.15); color: var(--bili-blue); }
+  .platform-tag.douyu { background: rgba(251,114,153,.15); color: var(--accent); }
+  .platform-tag.huya { background: rgba(255,153,0,.15); color: #f90; }
+  .platform-tag.other { background: rgba(136,136,154,.15); color: var(--text-secondary); }
+
+  .error-msg {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .room-error {
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 16px 12px; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📡 直播间监控</h1>
+  <div class="header-controls">
+    <span class="status-summary" id="statusSummary">加载中...</span>
+    <span class="last-update" id="lastUpdate"></span>
+    <button class="btn" id="refreshBtn" onclick="refreshAll()">🔄 刷新</button>
+  </div>
+</div>
+
+<div id="notice" class="notice"></div>
+
+<details class="config-bar">
+  <summary>⚙️ 配置房间列表</summary>
+  <div class="config-content">
+    <textarea id="configInput" spellcheck="false"></textarea>
+    <div class="config-hint">
+      每行一个房间：<code>平台 房间号 备注名</code>（备注名可选）。<br>
+      支持平台：<code>bilibili</code>（B站）、<code>douyu</code>（斗鱼）、<code>huya</code>（虎牙）<br>
+      提示：从 <code>file://</code> 直接打开时，浏览器跨域限制需要 CORS 代理；<br>
+      推荐用命令行启动临时服务器：<code>python -m http.server 8080</code> 然后在浏览器打开 <code>http://localhost:8080/live-monitor.html</code>
+    </div>
+    <div class="proxy-config">
+      <label>CORS 代理：</label>
+      <input type="text" id="proxyInput" value="">
+      <button class="btn" onclick="resetProxy()">↩️ 默认</button>
+    </div>
+    <div class="config-actions">
+      <button class="btn" onclick="applyConfig()">✅ 应用</button>
+      <button class="btn" onclick="resetConfig()">↩️ 恢复默认</button>
+    </div>
+  </div>
+</details>
+
+<div class="rooms-grid" id="roomsGrid">
+  <div class="error-msg">正在加载房间列表...</div>
+</div>
+
+<script>
+// ===================== 配置 =====================
+const DEFAULT_ROOMS = [
+  { platform: 'bilibili', id: '1742439556', name: '激素猪' },
+  { platform: 'bilibili', id: '10274888',   name: 'BlackDog' },
+];
+
+const DEFAULT_PROXY = 'https://api.allorigins.win/raw?url=';
+
+const REFRESH_INTERVAL = 30000;
+
+// ===================== 状态 =====================
+let rooms = [];
+let proxyUrl = DEFAULT_PROXY;
+let timer = null;
+let fetchCount = 0;
+
+// ===================== 带 CORS 代理的 fetch =====================
+async function fetchJSON(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  return resp.json();
+}
+
+async function fetchWithProxy(url) {
+  // 尝试直接请求，如果失败（CORS 问题）则通过代理重试
+  try {
+    return await fetchJSON(url);
+  } catch (e) {
+    // TypeError 通常是网络/CORS 错误，尝试代理
+    if (!proxyUrl) throw e;
+    const proxyResp = await fetch(proxyUrl + encodeURIComponent(url));
+    if (!proxyResp.ok) throw new Error(`代理返回 HTTP ${proxyResp.status}`);
+    const text = await proxyResp.text();
+    // 代理可能返回纯文本，尝试解析 JSON
+    return JSON.parse(text);
+  }
+}
+
+// ===================== API 封装 =====================
+const API = {
+  async bilibili(roomId) {
+    const infoUrl = `https://api.live.bilibili.com/room/v1/Room/get_info?room_id=${roomId}`;
+    const userUrl = `https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id=${roomId}`;
+
+    // 串行请求（比 Promise.all 更可靠，方便代理回退）
+    const infoData = await fetchWithProxy(infoUrl);
+    if (infoData.code !== 0) throw new Error(infoData.message || 'B站 API 错误');
+    const info = infoData.data;
+
+    let avatar = '', uname = '';
+    try {
+      const userData = await fetchWithProxy(userUrl);
+      if (userData.code === 0 && userData.data) {
+        const ui = userData.data.info || userData.data;
+        uname = ui.uname || uname;
+        avatar = ui.avatar || ui.face || '';
+      }
+    } catch (_) {
+      // 用户信息接口失败不影响核心功能
+    }
+
+    const statusMap = { 0: 'offline', 1: 'live', 2: 'replay' };
+    return {
+      title: info.title || '未开播',
+      liveStatus: statusMap[info.live_status] || 'offline',
+      viewerCount: info.online || 0,
+      cover: info.user_cover || info.keyframe || '',
+      uname,
+      avatar,
+      roomId: String(info.room_id || roomId),
+    };
+  },
+
+  async douyu(roomId) {
+    const url = `https://open.douyucdn.cn/api/RoomApi/room/${roomId}`;
+    const data = await fetchWithProxy(url);
+    if (data.error !== 0) throw new Error(data.data || '斗鱼 API 错误');
+    const d = data.data;
+    return {
+      title: d.room_name || '未开播',
+      liveStatus: d.room_status === '1' ? 'live' : 'offline',
+      viewerCount: parseInt(d.online) || 0,
+      cover: d.room_src || d.room_pic || '',
+      uname: d.nickname || '',
+      avatar: d.avatar?.small || d.owner_avatar || '',
+      roomId: String(roomId),
+    };
+  },
+
+  async huya(roomId) {
+    if (!proxyUrl) throw new Error('虎牙必须通过 CORS 代理访问，请配置代理地址');
+    const proxyResp = await fetch(proxyUrl + encodeURIComponent('https://m.huya.com/' + roomId));
+    const html = await proxyResp.text();
+
+    let liveStatus = 'offline', title = '未开播', uname = '', avatar = '', viewerCount = 0, cover = '';
+
+    const stateMatch = html.match(/<script>window\.__INITIAL_STATE__\s*=\s*({[\s\S]*?})<\/script>/);
+    if (stateMatch) {
+      try {
+        const state = JSON.parse(stateMatch[1]);
+        const roomInfo = state.roomInfo || state;
+        const profile = roomInfo.profileInfo || roomInfo.roomInfo || roomInfo;
+        uname = profile.nick || profile.name || uname;
+        avatar = profile.avatar || avatar;
+        const liveInfo = roomInfo.liveInfo || roomInfo.roomInfo || roomInfo;
+        title = liveInfo.introduction || liveInfo.roomName || liveInfo.title || title;
+        liveStatus = liveInfo.liveStatus === 'ON' || liveInfo.liveStatus === 1 || liveInfo.isLive === true ? 'live' : 'offline';
+        viewerCount = parseInt(liveInfo.totalCount) || parseInt(liveInfo.activityCount) || 0;
+        cover = (liveInfo.screenshot || liveInfo.roomImg || '').replace(/^\/\//, 'https://');
+      } catch(_) {}
+    }
+
+    if (!uname) {
+      const nm = html.match(/<span class="host-name"[^>]*>([^<]+)</);
+      if (nm) uname = nm[1];
+    }
+
+    return { title, liveStatus, viewerCount, cover, uname, avatar, roomId: String(roomId) };
+  },
+};
+
+// ===================== 渲染 =====================
+function formatViewers(n) {
+  if (n >= 10000) return (n / 10000).toFixed(1) + '万';
+  if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+  return String(n);
+}
+
+function statusText(s) {
+  return { live: '直播中', offline: '未开播', replay: '轮播中' }[s] || s;
+}
+
+function renderRoom(room, data, error) {
+  const card = document.createElement('div');
+  card.className = 'room-card' + (data?.liveStatus === 'live' ? ' live' : '');
+
+  const badgeClass = data?.liveStatus === 'live' ? 'live' : data?.liveStatus === 'replay' ? 'replay' : 'offline';
+  const showViewers = data?.liveStatus === 'live' || data?.liveStatus === 'replay';
+
+  card.innerHTML = `
+    <div class="cover-wrap">
+      ${data?.cover
+        ? `<img src="${data.cover}" alt="" loading="lazy" onerror="this.parentElement.querySelector('.placeholder').style.display='flex';this.style.display='none'">`
+        : ''}
+      <div class="placeholder" style="display:${data?.cover ? 'none' : 'flex'}">📺</div>
+      <div class="live-badge ${badgeClass}">${statusText(data?.liveStatus || '等待中')}</div>
+      ${showViewers ? `<span class="viewer-count">👁 ${formatViewers(data.viewerCount)}</span>` : ''}
+    </div>
+    <div class="room-info">
+      <div class="room-title ${data?.liveStatus !== 'live' ? 'offline-title' : ''}">
+        ${data?.title || (error ? '出错了' : '加载中...')}
+      </div>
+      <div class="room-meta">
+        <div class="room-owner">
+          <div class="avatar">
+            ${data?.avatar ? `<img src="${data.avatar}" onerror="this.style.display='none'">` : ''}
+          </div>
+          <span>${data?.uname || room.name || room.id}</span>
+        </div>
+        <span class="platform-tag ${room.platform}">${room.platform}</span>
+      </div>
+      ${error ? `<div class="room-error">❌ ${error}</div>` : ''}
+    </div>
+  `;
+  return card;
+}
+
+function render(roomDataMap, errors) {
+  const grid = document.getElementById('roomsGrid');
+  grid.innerHTML = '';
+
+  let liveCount = 0;
+  rooms.forEach(room => {
+    const key = room.platform + ':' + room.id;
+    const data = roomDataMap[key];
+    const error = errors[key];
+    if (data?.liveStatus === 'live') liveCount++;
+    grid.appendChild(renderRoom(room, data, error));
+  });
+
+  document.getElementById('statusSummary').innerHTML =
+    `<span class="count-live">${liveCount}</span> 直播中 / ${rooms.length} 房间`;
+}
+
+// ===================== 数据获取 =====================
+async function refreshAll() {
+  const btn = document.getElementById('refreshBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ 刷新中...';
+
+  const roomDataMap = {};
+  const errors = {};
+
+  for (const room of rooms) {
+    const key = room.platform + ':' + room.id;
+    try {
+      const fetcher = API[room.platform];
+      if (!fetcher) throw new Error(`不支持的平台: ${room.platform}`);
+      roomDataMap[key] = await fetcher(room.id);
+    } catch (err) {
+      errors[key] = err.message || String(err);
+    }
+  }
+
+  render(roomDataMap, errors);
+
+  const now = new Date();
+  document.getElementById('lastUpdate').textContent =
+    '上次更新: ' + now.toLocaleTimeString('zh-CN');
+
+  btn.disabled = false;
+  btn.textContent = '🔄 刷新';
+}
+
+// ===================== 配置管理 =====================
+function parseConfigText(text) {
+  return text.split('\n')
+    .map(l => l.trim())
+    .filter(l => l && !l.startsWith('#'))
+    .map(l => {
+      const parts = l.split(/\s+/);
+      if (parts.length < 2) return null;
+      return { platform: parts[0].toLowerCase(), id: parts[1], name: parts.slice(2).join(' ') || '' };
+    })
+    .filter(Boolean);
+}
+
+function roomsToText(rooms) {
+  return rooms.map(r => `${r.platform} ${r.id} ${r.name || ''}`.trim()).join('\n');
+}
+
+function applyConfig() {
+  const parsed = parseConfigText(document.getElementById('configInput').value);
+  if (parsed.length === 0) { alert('没有解析到有效的配置'); return; }
+  const p = document.getElementById('proxyInput').value.trim();
+  if (p) proxyUrl = p;
+  rooms = parsed;
+  startMonitoring();
+}
+
+function resetConfig() {
+  rooms = [...DEFAULT_ROOMS];
+  document.getElementById('configInput').value = roomsToText(rooms);
+  startMonitoring();
+}
+
+function resetProxy() {
+  proxyUrl = DEFAULT_PROXY;
+  document.getElementById('proxyInput').value = proxyUrl;
+}
+
+// ===================== 通知 =====================
+function showNotice(type, msg) {
+  const el = document.getElementById('notice');
+  el.className = 'notice ' + type;
+  el.innerHTML = msg;
+}
+
+// ===================== 启动 =====================
+function startMonitoring() {
+  if (timer) clearInterval(timer);
+  refreshAll();
+  timer = setInterval(refreshAll, REFRESH_INTERVAL);
+}
+
+// 初始化
+rooms = [...DEFAULT_ROOMS];
+document.getElementById('configInput').value = roomsToText(rooms);
+document.getElementById('proxyInput').value = proxyUrl;
+
+// 检测是否从 file:// 打开并显示提示
+if (window.location.protocol === 'file:') {
+  showNotice('warn', '💡 提示：从 file:// 直接打开可能因浏览器跨域限制无法获取数据。' +
+    '推荐用终端运行 <code>python -m http.server 8080</code>，' +
+    '然后访问 <a href="http://localhost:8080/live-monitor.html" target="_blank">http://localhost:8080/live-monitor.html</a>。' +
+    '或使用下方的 CORS 代理（默认已配置公共代理）。');
+}
+
+startMonitoring();
+</script>
+</body>
+</html>
