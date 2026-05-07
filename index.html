@@ -433,20 +433,21 @@ function saveProxy(p) {
 }
 
 // ===================== 带 CORS 代理的 fetch =====================
-async function fetchJSON(url) {
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-  return resp.json();
-}
-async function fetchWithProxy(url) {
-  try {
-    return await fetchJSON(url);
-  } catch (e) {
-    if (!proxyUrl) throw e;
+// 判断是否需要代理（HTTPS/GitHub Pages 下直连 B站 API 会跨域失败）
+const needsProxy = window.location.protocol === 'https:' ||
+                    window.location.hostname.endsWith('.github.io');
+
+async function fetchViaProxy(url) {
+  // 需要代理时直接走代理，跳过直连（省一次失败等待）
+  if (needsProxy && proxyUrl) {
     const resp = await fetch(proxyUrl + encodeURIComponent(url));
     if (!resp.ok) throw new Error(`代理返回 HTTP ${resp.status}`);
     return JSON.parse(await resp.text());
   }
+  // 本地环境先试直连
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  return resp.json();
 }
 
 // ===================== API 封装 =====================
@@ -454,30 +455,34 @@ const API = {
   async bilibili(roomId) {
     const infoUrl = `https://api.live.bilibili.com/room/v1/Room/get_info?room_id=${roomId}`;
     const userUrl = `https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id=${roomId}`;
-    const infoData = await fetchWithProxy(infoUrl);
-    if (infoData.code !== 0) throw new Error(infoData.message || 'B站 API 错误');
-    const info = infoData.data;
+    // 房间信息和用户信息并行获取
+    const [infoData, userData] = await Promise.allSettled([
+      fetchViaProxy(infoUrl),
+      fetchViaProxy(userUrl)
+    ]);
+
+    if (infoData.status !== 'fulfilled') throw new Error('B站 API 错误: ' + (infoData.reason?.message || ''));
+    const info = infoData.value;
+    if (info.code !== 0) throw new Error(info.message || 'B站 API 错误');
+    const data = info.data;
     let avatar = '', uname = '';
-    try {
-      const userData = await fetchWithProxy(userUrl);
-      if (userData.code === 0 && userData.data) {
-        const ui = userData.data.info || userData.data;
-        uname = ui.uname || uname;
-        avatar = ui.avatar || ui.face || '';
-      }
-    } catch (_) {}
+    if (userData.status === 'fulfilled' && userData.value?.code === 0 && userData.value?.data) {
+      const ui = userData.value.data.info || userData.value.data;
+      uname = ui.uname || uname;
+      avatar = ui.avatar || ui.face || '';
+    }
     const statusMap = { 0: 'offline', 1: 'live', 2: 'replay' };
     return {
-      title: info.title || '未开播',
+      title: data.title || '未开播',
       liveStatus: statusMap[info.live_status] || 'offline',
-      viewerCount: info.online || 0,
-      cover: info.user_cover || info.keyframe || '',
+      viewerCount: data.online || 0,
+      cover: data.user_cover || data.keyframe || '',
       uname, avatar,
-      roomId: String(info.room_id || roomId),
+      roomId: String(data.room_id || roomId),
     };
   },
   async douyu(roomId) {
-    const data = await fetchWithProxy(`https://open.douyucdn.cn/api/RoomApi/room/${roomId}`);
+    const data = await fetchViaProxy(`https://open.douyucdn.cn/api/RoomApi/room/${roomId}`);
     if (data.error !== 0) throw new Error(data.data || '斗鱼 API 错误');
     const d = data.data;
     return {
@@ -577,14 +582,24 @@ async function refreshAll() {
   const btn = document.getElementById('refreshBtn');
   btn.disabled = true; btn.textContent = '⏳ 刷新中...';
   const roomDataMap = {}, errors = {};
-  for (const room of rooms) {
+
+  // 并行获取所有房间数据
+  const results = await Promise.allSettled(rooms.map(async (room) => {
     const key = room.platform + ':' + room.id;
-    try {
-      const fetcher = API[room.platform];
-      if (!fetcher) throw new Error(`不支持的平台: ${room.platform}`);
-      roomDataMap[key] = await fetcher(room.id);
-    } catch (err) { errors[key] = err.message || String(err); }
-  }
+    const fetcher = API[room.platform];
+    if (!fetcher) throw new Error(`不支持的平台: ${room.platform}`);
+    const data = await fetcher(room.id);
+    return { key, data };
+  }));
+
+  results.forEach((res, i) => {
+    if (res.status === 'fulfilled') {
+      roomDataMap[res.value.key] = res.value.data;
+    } else {
+      const key = rooms[i].platform + ':' + rooms[i].id;
+      errors[key] = res.reason?.message || String(res.reason);
+    }
+  });
   render(roomDataMap, errors);
   document.getElementById('lastUpdate').textContent = '上次更新: ' + new Date().toLocaleTimeString('zh-CN');
   btn.disabled = false; btn.textContent = '🔄 刷新';
