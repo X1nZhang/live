@@ -1,0 +1,78 @@
+name: Fetch Live Status
+on:
+  schedule:
+    - cron: '*/2 * * * *'   # 每2分钟执行一次
+  workflow_dispatch:          # 也可手动触发
+  push:
+    branches: [main]
+    paths: ['rooms.json']
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Fetch room status
+        run: |
+          node -e '
+          const fs = require("fs");
+          const rooms = JSON.parse(fs.readFileSync("rooms.json","utf8"));
+          
+          async function main() {
+            const results = [];
+            for (const r of rooms) {
+              const key = r.platform + ":" + r.id;
+              try {
+                if (r.platform === "bilibili") {
+                  const res = await fetch("https://api.live.bilibili.com/room/v1/Room/get_info?room_id=" + r.id);
+                  const d = await res.json();
+                  if (d.code === 0 && d.data) {
+                    const info = d.data;
+                    const statusMap = {0:"offline",1:"live",2:"replay"};
+                    // 尝试获取用户信息
+                    let uname="", avatar="";
+                    try {
+                      const ures = await fetch("https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id=" + r.id);
+                      const ud = await ures.json();
+                      if (ud.code === 0 && ud.data) {
+                        const ui = ud.data.info || ud.data;
+                        uname = ui.uname || "";
+                        avatar = ui.avatar || ui.face || "";
+                      }
+                    } catch(e) {}
+                    results.push({
+                      key,
+                      platform: r.platform,
+                      id: r.id,
+                      name: r.name,
+                      title: info.title || "",
+                      liveStatus: statusMap[info.live_status] || "offline",
+                      viewerCount: info.online || 0,
+                      cover: info.user_cover || info.keyframe || "",
+                      uname, avatar,
+                      fetchedAt: new Date().toISOString()
+                    });
+                  } else {
+                    results.push({ key, platform: r.platform, id: r.id, name: r.name, error: d.message || "API error", fetchedAt: new Date().toISOString() });
+                  }
+                } else {
+                  results.push({ key, platform: r.platform, id: r.id, name: r.name, error: "unsupported platform", fetchedAt: new Date().toISOString() });
+                }
+              } catch(e) {
+                results.push({ key, platform: r.platform, id: r.id, name: r.name, error: e.message, fetchedAt: new Date().toISOString() });
+              }
+            }
+            fs.writeFileSync("status.json", JSON.stringify({ rooms: results, updatedAt: new Date().toISOString() }, null, 2));
+            console.log("Updated", results.length, "rooms");
+          }
+          main();
+          '
+      
+      - name: Commit and push
+        run: |
+          git config user.name 'live-bot'
+          git config user.email 'live-bot@users.noreply.github.com'
+          git add status.json
+          git diff --staged --quiet || git commit -m 'auto: update live status'
+          git push
