@@ -578,12 +578,36 @@ function render(roomDataMap, errors) {
 }
 
 // ===================== 数据获取 =====================
+const STATUS_JSON_URL = 'https://raw.githubusercontent.com/X1nZhang/live/main/status.json';
+
 async function refreshAll() {
   const btn = document.getElementById('refreshBtn');
   btn.disabled = true; btn.textContent = '⏳ 刷新中...';
   const roomDataMap = {}, errors = {};
 
-  // 并行获取所有房间数据
+  // 优先从 status.json 读取（GitHub Actions 自动更新，无 CORS 问题）
+  try {
+    const resp = await fetch(STATUS_JSON_URL + '?t=' + Date.now());
+    if (resp.ok) {
+      const data = await resp.json();
+      if (data.rooms && data.rooms.length > 0) {
+        data.rooms.forEach(r => {
+          if (r.error) {
+            errors[r.key] = r.error;
+          } else {
+            roomDataMap[r.key] = r;
+          }
+        });
+        render(roomDataMap, errors);
+        document.getElementById('lastUpdate').textContent =
+          '更新于 ' + new Date(data.updatedAt).toLocaleTimeString('zh-CN') + ' (GitHub Actions)';
+        btn.disabled = false; btn.textContent = '🔄 刷新';
+        return;
+      }
+    }
+  } catch (_) { /* fallback to live API */ }
+
+  // 备用：直连 API（通过 CORS 代理）
   const results = await Promise.allSettled(rooms.map(async (room) => {
     const key = room.platform + ':' + room.id;
     const fetcher = API[room.platform];
