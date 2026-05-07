@@ -96,10 +96,15 @@
     border: 1px solid var(--card-border);
     border-radius: 12px;
     overflow: hidden;
-    transition: border-color .2s, box-shadow .2s;
+    transition: border-color .2s, box-shadow .2s, transform .15s;
     position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
-  .room-card:hover { border-color: #444; }
+  .room-card:hover { border-color: #444; transform: translateY(-2px); }
+  .room-card:active { transform: translateY(0); }
   .room-card.live { border-color: var(--live-color); box-shadow: 0 0 20px rgba(0, 212, 90, .08); }
   .cover-wrap {
     position: relative;
@@ -508,6 +513,16 @@ const API = {
   },
 };
 
+// ===================== 房间跳转链接 =====================
+function getRoomUrl(platform, id) {
+  const urls = {
+    bilibili: 'https://live.bilibili.com/',
+    douyu: 'https://www.douyu.com/',
+    huya: 'https://www.huya.com/',
+  };
+  return (urls[platform] || 'https://live.bilibili.com/') + id;
+}
+
 // ===================== 渲染 =====================
 function formatViewers(n) {
   if (n >= 10000) return (n / 10000).toFixed(1) + '万';
@@ -517,7 +532,11 @@ function formatViewers(n) {
 function statusText(s) { return { live: '直播中', offline: '未开播', replay: '轮播中' }[s] || s; }
 
 function renderRoom(room, data, error) {
-  const card = document.createElement('div');
+  const url = getRoomUrl(room.platform, room.id);
+  const card = document.createElement('a');
+  card.href = url;
+  card.target = '_blank';
+  card.rel = 'noopener noreferrer';
   card.className = 'room-card' + (data?.liveStatus === 'live' ? ' live' : '');
   const bc = data?.liveStatus === 'live' ? 'live' : data?.liveStatus === 'replay' ? 'replay' : 'offline';
   const sv = data?.liveStatus === 'live' || data?.liveStatus === 'replay';
