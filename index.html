@@ -389,12 +389,10 @@
 
 <script>
 // ===================== 管理员账号 =====================
-// ⚠️ 请修改密码！建议使用复杂密码
+// ⚠️ 请修改密码！注意密码明文显示在源码中（纯静态页面无后端）
 const ADMIN_CREDENTIALS = {
   username: 'zx',
-  // 密码的 SHA-256 哈希值
-  // 当前密码: 123
-  passwordHash: 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',
+  password: '123',
 };
 
 // ===================== 默认配置 =====================
@@ -409,13 +407,6 @@ const REFRESH_INTERVAL = 40000;
 let rooms = [];
 let proxyUrl = DEFAULT_PROXY;
 let timer = null;
-
-// ===================== 密码工具 =====================
-async function sha256(str) {
-  const buf = new TextEncoder().encode(str);
-  const hash = await crypto.subtle.digest('SHA-256', buf);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
 
 // ===================== 存储 =====================
 function loadRooms() {
@@ -599,20 +590,14 @@ function isAdmin() {
   return sessionStorage.getItem('live_monitor_admin') === 'true';
 }
 
-async function handleLogin() {
+function handleLogin() {
   const user = document.getElementById('loginUser').value.trim();
   const pass = document.getElementById('loginPass').value;
   const errEl = document.getElementById('loginError');
 
   if (!user || !pass) { errEl.textContent = '请输入用户名和密码'; errEl.style.display = 'block'; return; }
 
-  // 验证
-  if (user !== ADMIN_CREDENTIALS.username) {
-    errEl.textContent = '用户名或密码错误'; errEl.style.display = 'block'; return;
-  }
-
-  const hash = await sha256(pass);
-  if (hash !== ADMIN_CREDENTIALS.passwordHash) {
+  if (user !== ADMIN_CREDENTIALS.username || pass !== ADMIN_CREDENTIALS.password) {
     errEl.textContent = '用户名或密码错误'; errEl.style.display = 'block'; return;
   }
 
