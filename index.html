@@ -198,6 +198,7 @@
   .platform-tag.bilibili { background: rgba(0,161,214,.15); color: var(--bili-blue); }
   .platform-tag.douyu { background: rgba(251,114,153,.15); color: var(--accent); }
   .platform-tag.huya { background: rgba(255,153,0,.15); color: #f90; }
+  .platform-tag.kuaishou { background: rgba(255,0,0,.15); color: #ff4d4f; }
   .platform-tag.other { background: rgba(136,136,154,.15); color: var(--text-secondary); }
   .room-error { font-size: 12px; color: #ef4444; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
@@ -524,6 +525,7 @@ function getRoomUrl(platform, id) {
     bilibili: 'https://live.bilibili.com/',
     douyu: 'https://www.douyu.com/',
     huya: 'https://www.huya.com/',
+    kuaishou: 'https://live.kuaishou.com/u/',
   };
   return (urls[platform] || 'https://live.bilibili.com/') + id;
 }
