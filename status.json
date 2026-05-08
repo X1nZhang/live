@@ -6,12 +6,12 @@
       "id": "1742439556",
       "name": "激素猪",
       "title": "横店守村人",
-      "liveStatus": "live",
-      "viewerCount": 2545,
+      "liveStatus": "offline",
+      "viewerCount": 0,
       "cover": "https://i0.hdslb.com/bfs/live/59fc254c1f51a962dbf69ae85e4920f2f6fb8dcd.png",
       "uname": "",
       "avatar": "",
-      "fetchedAt": "2026-05-08T20:15:38.268Z"
+      "fetchedAt": "2026-05-08T23:39:21.183Z"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/e4509b1d3f54d3816c6c8798b4699ea5c981a8b2.jpg",
       "uname": "",
       "avatar": "",
-      "fetchedAt": "2026-05-08T20:15:38.792Z"
+      "fetchedAt": "2026-05-08T23:39:21.838Z"
     },
     {
       "key": "kuaishou:2353452183",
@@ -33,8 +33,8 @@
       "name": "快手主播",
       "liveStatus": "offline",
       "title": "",
-      "fetchedAt": "2026-05-08T20:15:42.052988"
+      "fetchedAt": "2026-05-08T23:39:25.516872"
     }
   ],
-  "updatedAt": "2026-05-08T20:15:42.053086"
+  "updatedAt": "2026-05-08T23:39:25.516987"
 }
