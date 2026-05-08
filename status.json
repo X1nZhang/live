@@ -11,7 +11,7 @@
       "cover": "https://i0.hdslb.com/bfs/live/59fc254c1f51a962dbf69ae85e4920f2f6fb8dcd.png",
       "uname": "",
       "avatar": "",
-      "fetchedAt": "2026-05-08T06:23:20.534Z"
+      "fetchedAt": "2026-05-08T08:48:58.459Z"
     },
     {
       "key": "bilibili:10274888",
@@ -24,8 +24,16 @@
       "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/e4509b1d3f54d3816c6c8798b4699ea5c981a8b2.jpg",
       "uname": "",
       "avatar": "",
-      "fetchedAt": "2026-05-08T06:23:21.335Z"
+      "fetchedAt": "2026-05-08T08:48:59.006Z"
+    },
+    {
+      "key": "kuaishou:2353452183",
+      "platform": "kuaishou",
+      "id": "2353452183",
+      "name": "快手主播",
+      "error": "unsupported platform",
+      "fetchedAt": "2026-05-08T08:48:59.006Z"
     }
   ],
-  "updatedAt": "2026-05-08T06:23:21.335Z"
+  "updatedAt": "2026-05-08T08:48:59.006Z"
 }
