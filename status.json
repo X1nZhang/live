@@ -6,7 +6,7 @@
       "id": "1742439556",
       "name": "激素猪",
       "error": "Expecting value: line 1 column 1 (char 0)",
-      "fetchedAt": "2026-05-08T08:54:11.844423"
+      "fetchedAt": "2026-05-08T08:56:18.612973"
     },
     {
       "key": "bilibili:10274888",
@@ -14,7 +14,7 @@
       "id": "10274888",
       "name": "BlackDog",
       "error": "Expecting value: line 1 column 1 (char 0)",
-      "fetchedAt": "2026-05-08T08:54:12.564366"
+      "fetchedAt": "2026-05-08T08:56:18.992690"
     },
     {
       "key": "kuaishou:2353452183",
@@ -22,8 +22,8 @@
       "id": "2353452183",
       "name": "快手主播",
       "error": "streamget 未安装",
-      "fetchedAt": "2026-05-08T08:54:12.588749"
+      "fetchedAt": "2026-05-08T08:56:19.024551"
     }
   ],
-  "updatedAt": "2026-05-08T08:54:12.588759"
+  "updatedAt": "2026-05-08T08:56:19.024556"
 }
