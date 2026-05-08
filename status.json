@@ -5,25 +5,36 @@
       "platform": "bilibili",
       "id": "1742439556",
       "name": "激素猪",
-      "error": "Expecting value: line 1 column 1 (char 0)",
-      "fetchedAt": "2026-05-08T08:56:18.612973"
+      "title": "横店传媒",
+      "liveStatus": "offline",
+      "viewerCount": 0,
+      "cover": "https://i0.hdslb.com/bfs/live/59fc254c1f51a962dbf69ae85e4920f2f6fb8dcd.png",
+      "uname": "",
+      "avatar": "",
+      "fetchedAt": "2026-05-08T09:02:02.982Z"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "error": "Expecting value: line 1 column 1 (char 0)",
-      "fetchedAt": "2026-05-08T08:56:18.992690"
+      "title": "工作室",
+      "liveStatus": "offline",
+      "viewerCount": 0,
+      "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/e4509b1d3f54d3816c6c8798b4699ea5c981a8b2.jpg",
+      "uname": "",
+      "avatar": "",
+      "fetchedAt": "2026-05-08T09:02:03.766Z"
     },
     {
       "key": "kuaishou:2353452183",
       "platform": "kuaishou",
       "id": "2353452183",
       "name": "快手主播",
-      "error": "streamget 未安装",
-      "fetchedAt": "2026-05-08T08:56:19.024551"
+      "liveStatus": "offline",
+      "title": "",
+      "fetchedAt": "2026-05-08T09:02:07.271299"
     }
   ],
-  "updatedAt": "2026-05-08T08:56:19.024556"
+  "updatedAt": "2026-05-08T09:02:07.271438"
 }
