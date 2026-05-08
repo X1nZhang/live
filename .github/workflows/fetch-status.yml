@@ -15,63 +15,105 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install streamget httpx -q
+
       - name: Fetch room status
         run: |
-          node -e '
-          const fs = require("fs");
-          const rooms = JSON.parse(fs.readFileSync("rooms.json","utf8"));
-          
-          async function main() {
-            const results = [];
-            for (const r of rooms) {
-              const key = r.platform + ":" + r.id;
-              try {
-                if (r.platform === "bilibili") {
-                  const res = await fetch("https://api.live.bilibili.com/room/v1/Room/get_info?room_id=" + r.id);
-                  const d = await res.json();
-                  if (d.code === 0 && d.data) {
-                    const info = d.data;
-                    const statusMap = {0:"offline",1:"live",2:"replay"};
-                    // 尝试获取用户信息
-                    let uname="", avatar="";
-                    try {
-                      const ures = await fetch("https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id=" + r.id);
-                      const ud = await ures.json();
-                      if (ud.code === 0 && ud.data) {
-                        const ui = ud.data.info || ud.data;
-                        uname = ui.uname || "";
-                        avatar = ui.avatar || ui.face || "";
-                      }
-                    } catch(e) {}
-                    results.push({
-                      key,
-                      platform: r.platform,
-                      id: r.id,
-                      name: r.name,
-                      title: info.title || "",
-                      liveStatus: statusMap[info.live_status] || "offline",
-                      viewerCount: info.online || 0,
-                      cover: info.user_cover || info.keyframe || "",
-                      uname, avatar,
-                      fetchedAt: new Date().toISOString()
-                    });
-                  } else {
-                    results.push({ key, platform: r.platform, id: r.id, name: r.name, error: d.message || "API error", fetchedAt: new Date().toISOString() });
-                  }
-                } else {
-                  results.push({ key, platform: r.platform, id: r.id, name: r.name, error: "unsupported platform", fetchedAt: new Date().toISOString() });
-                }
-              } catch(e) {
-                results.push({ key, platform: r.platform, id: r.id, name: r.name, error: e.message, fetchedAt: new Date().toISOString() });
+          python3 << 'PYEOF'
+          import json, os, sys, traceback
+
+          # 各平台取状态
+          def fetch_bilibili(room_id):
+              import httpx
+              r = httpx.get(f"https://api.live.bilibili.com/room/v1/Room/get_info?room_id={room_id}", timeout=15)
+              d = r.json()
+              if d["code"] != 0:
+                  return {"error": d.get("message","B站API错误")}
+              info = d["data"]
+              # 用户信息
+              uname, avatar = "", ""
+              try:
+                  ur = httpx.get(f"https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id={room_id}", timeout=10)
+                  ud = ur.json()
+                  if ud["code"] == 0 and ud.get("data"):
+                      ui = ud["data"].get("info") or ud["data"]
+                      uname = ui.get("uname","")
+                      avatar = ui.get("avatar","") or ui.get("face","")
+              except: pass
+              status_map = {0:"offline", 1:"live", 2:"replay"}
+              return {
+                  "title": info.get("title",""),
+                  "liveStatus": status_map.get(info.get("live_status"),"offline"),
+                  "viewerCount": info.get("online",0),
+                  "cover": info.get("user_cover","") or info.get("keyframe",""),
+                  "uname": uname,
+                  "avatar": avatar,
               }
-            }
-            fs.writeFileSync("status.json", JSON.stringify({ rooms: results, updatedAt: new Date().toISOString() }, null, 2));
-            console.log("Updated", results.length, "rooms");
-          }
-          main();
-          '
-      
+
+          def fetch_kuaishou(user_id):
+              try:
+                  from streamget import Kuaishou
+                  # streamget 的 Kuaishou API
+                  info = Kuaishou().get_live_info(user_id)
+                  is_live = info.get("live_status", False) or info.get("isLive", False)
+                  return {
+                      "title": info.get("title","") or info.get("introduction","") or "",
+                      "liveStatus": "live" if is_live else "offline",
+                      "viewerCount": info.get("viewerCount",0) or info.get("online",0) or info.get("totalCount",0),
+                      "cover": info.get("cover","") or info.get("screenshot","") or "",
+                      "uname": info.get("nickname","") or info.get("nick","") or info.get("userName",""),
+                      "avatar": info.get("avatar","") or "",
+                  }
+              except ImportError:
+                  return {"error": "streamget 未安装"}
+              except Exception as e:
+                  return {"error": f"快手: {str(e)}"}
+
+          # 读取配置
+          with open("rooms.json") as f:
+              rooms = json.load(f)
+
+          results = []
+          for r in rooms:
+              key = f"{r['platform']}:{r['id']}"
+              entry = {"key": key, "platform": r["platform"], "id": r["id"], "name": r.get("name","")}
+              try:
+                  if r["platform"] == "bilibili":
+                      data = fetch_bilibili(r["id"])
+                  elif r["platform"] == "kuaishou":
+                      data = fetch_kuaishou(r["id"])
+                  else:
+                      entry["error"] = f"不支持的平台: {r['platform']}"
+                      results.append(entry)
+                      continue
+
+                  if "error" in data:
+                      entry["error"] = data["error"]
+                  else:
+                      entry.update(data)
+                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
+              except Exception as e:
+                  entry["error"] = str(e)
+                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
+              results.append(entry)
+
+          output = {"rooms": results, "updatedAt": __import__('datetime').datetime.now().isoformat()}
+          with open("status.json", "w") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+          print(f"Updated {len(results)} rooms")
+          for r in results:
+              status = r.get("liveStatus", r.get("error", "?"))
+              print(f"  {r['platform']}/{r.get('name',r['id'])} → {status}")
+          PYEOF
+
       - name: Commit and push
         run: |
           git config user.name 'live-bot'
