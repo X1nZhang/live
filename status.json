@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-05-09T17:37:41.310325+00:00"
+      "fetchedAt": "2026-05-09T20:07:11.667397+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-05-09T17:37:42.441257+00:00"
+      "fetchedAt": "2026-05-09T20:07:13.092208+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-05-09T17:37:42.441311+00:00"
+      "fetchedAt": "2026-05-09T20:07:13.092245+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-05-09T17:37:43.419339+00:00"
+      "fetchedAt": "2026-05-09T20:07:15.077002+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "成都",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-05-09T17:37:44.673491+00:00"
+      "fetchedAt": "2026-05-09T20:07:16.426350+00:00"
     }
   ],
-  "updatedAt": "2026-05-09T17:37:44.673507+00:00"
+  "updatedAt": "2026-05-09T20:07:16.426371+00:00"
 }
