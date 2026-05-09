@@ -519,6 +519,9 @@ const API = {
     if (!uname) { const n = html.match(/<span class="host-name"[^>]*>([^<]+)</); if (n) uname = n[1]; }
     return { title, liveStatus, viewerCount, cover, uname, avatar, roomId: String(roomId) };
   },
+  // fallback: 抖音/快手无公开 API，走 status.json 读取
+  async douyin() { return { liveStatus: 'offline', title: '暂不支持实时查询' }; },
+  async kuaishou() { return { liveStatus: 'offline', title: '暂不支持实时查询' }; },
 };
 
 // ===================== 房间跳转链接 =====================
