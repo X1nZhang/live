@@ -70,69 +70,104 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Fetch Kuaishou status
+      - name: Install deps
         run: |
-          pip install requests -q
+          pip install requests streamget httpx[http2] pycryptodome -q
+
+      - name: Fetch Kuaishou + Douyin status
+        run: |
           python3 << 'PYEOF'
-          import json, requests, re
+          import json, requests, re, sys
 
           results = []
           with open("rooms.json") as f:
               rooms = json.load(f)
 
-          for r in rooms:
-              if r["platform"] != "kuaishou":
-                  continue
+          def fetch_kuaishou(r):
               key = f"{r['platform']}:{r['id']}"
               entry = {"key": key, "platform": "kuaishou", "id": r["id"], "name": r.get("name","")}
               try:
-                  # Kuaishou 直播间URL
                   url = f"https://live.kuaishou.com/u/{r['id']}"
                   headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
                   resp = requests.get(url, headers=headers, timeout=15)
                   html = resp.text
-
-                  # 尝试提取 __INITIAL_STATE__
-                  # 注意：JSON中可能包含转义的引号和嵌套的大括号
                   match = re.search(r'window\.__INITIAL_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
                   if match:
                       raw = match.group(1)
-                      # 尝试解析
-                      try:
-                          state = json.loads(raw)
+                      try: state = json.loads(raw)
                       except:
-                          # 如果直接解析失败，尝试修复常见问题
                           raw = raw.replace("\\'", "'")
-                          # 使用 more json 容错解析
                           state = json.loads(raw)
-
-                      # 从 state 中提取直播信息
                       if "liveroom" in state:
                           lr = state["liveroom"]
                           is_live = lr.get("liveStatus") == 1 or lr.get("isLive") == True or lr.get("status") == 1
-                          entry["title"] = lr.get("title","") or lr.get("roomName","") or lr.get("introduction","") or ""
+                          entry["title"] = lr.get("title","") or lr.get("roomName","") or ""
                           entry["liveStatus"] = "live" if is_live else "offline"
-                          entry["viewerCount"] = lr.get("viewerCount",0) or lr.get("onlineCount",0) or lr.get("totalCount",0)
-                          entry["cover"] = lr.get("cover","") or lr.get("screenshot","") or lr.get("shareUrl","") or ""
-                          entry["uname"] = lr.get("nickname","") or lr.get("nick","") or lr.get("userName","") or ""
+                          entry["viewerCount"] = lr.get("viewerCount",0) or lr.get("onlineCount",0) or 0
+                          entry["cover"] = lr.get("cover","") or lr.get("screenshot","") or ""
+                          entry["uname"] = lr.get("nickname","") or lr.get("nick","") or ""
                           entry["avatar"] = lr.get("avatar","") or lr.get("userAvatar","") or ""
                       else:
-                          # 尝试从 user 信息判断
                           entry["liveStatus"] = "offline"
-                          entry["title"] = ""
                   else:
-                      # 检查页面是否包含直播中的特征
-                      is_live_text = "直播" in html and "正在直播" in html
-                      entry["liveStatus"] = "live" if is_live_text else "offline"
-                      entry["title"] = ""
-
+                      entry["liveStatus"] = "offline"
                   entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
               except Exception as e:
                   entry["error"] = str(e)
                   entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
-
-              results.append(entry)
               print(f"  Kuaishou/{r.get('name',r['id'])} → {entry.get('liveStatus', entry.get('error','?'))}")
+              return entry
+
+          def fetch_douyin(r):
+              key = f"{r['platform']}:{r['id']}"
+              entry = {"key": key, "platform": "douyin", "id": r["id"], "name": r.get("name","")}
+              try:
+                  # 用 streamget 尝试获取抖音直播信息
+                  from streamget import DouyinLiveStream
+                  import asyncio
+
+                  async def get_info():
+                      dy = DouyinLiveStream()
+                      # 抖音直播间 URL
+                      url = f"https://live.douyin.com/{r['id']}"
+                      data = await dy.fetch_web_stream_data(url=url)
+                      if not data:
+                          # 如果 live.douyin.com 不行，试试 www.douyin.com
+                          url = f"https://www.douyin.com/user/{r['id']}"
+                          data = await dy.fetch_web_stream_data(url=url)
+                      return data
+
+                  info = asyncio.run(get_info())
+                  # streamget 返回的数据结构因平台而异
+                  # 尝试提取关键信息
+                  if info and isinstance(info, dict):
+                      # 直播状态
+                      status = info.get("status") or info.get("live_status") or info.get("isLive") or info.get("room_id")
+                      is_live = status is not None and status != 0 and status != "0" and status != "offline"
+
+                      entry["title"] = info.get("title","") or info.get("room_title","") or ""
+                      entry["liveStatus"] = "live" if is_live else "offline"
+                      entry["viewerCount"] = info.get("viewer_count",0) or info.get("online_count",0) or info.get("total_count",0) or 0
+                      entry["cover"] = info.get("cover","") or info.get("cover_url","") or ""
+                      entry["uname"] = info.get("anchor_name","") or info.get("nickname","") or ""
+                      entry["avatar"] = info.get("avatar","") or info.get("anchor_avatar","") or ""
+                  else:
+                      entry["liveStatus"] = "offline"
+                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
+              except ImportError as e:
+                  entry["error"] = f"streamget 未安装: {e}"
+                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
+              except Exception as e:
+                  entry["error"] = f"抖音: {e}"
+                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
+              print(f"  Douyin/{r.get('name',r['id'])} → {entry.get('liveStatus', entry.get('error','?'))}")
+              return entry
+
+          for r in rooms:
+              if r["platform"] == "kuaishou":
+                  results.append(fetch_kuaishou(r))
+              elif r["platform"] == "douyin":
+                  results.append(fetch_douyin(r))
 
           # 合并 B站结果
           all_results = []
