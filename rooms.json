@@ -13,5 +13,10 @@
     "platform": "kuaishou",
     "id": "2353452183",
     "name": "快手主播"
+  },
+  {
+    "platform": "douyin",
+    "id": "Ccc3392",
+    "name": "抖音主播"
   }
 ]
