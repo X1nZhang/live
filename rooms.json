@@ -18,5 +18,10 @@
     "platform": "douyin",
     "id": "Ccc3392",
     "name": "抖音主播"
+  },
+  {
+    "platform": "bilibili",
+    "id": "3103670",
+    "name": "烂牙"
   }
 ]
