@@ -27,90 +27,66 @@ jobs:
       - name: Fetch all rooms via streamget
         run: |
           python3 << 'PYEOF'
-          import json, asyncio, os
+          import json, asyncio
           from datetime import datetime, timezone
 
-          # 平台配置：类名 + URL 模板
-          CONFIG = {
-              'bilibili': {
-                  'class': 'BilibiliLiveStream',
-                  'url': lambda id: f'https://live.bilibili.com/{id}',
-              },
-              'kuaishou': {
-                  'class': 'KwaiLiveStream',
-                  'url': lambda id: f'https://live.kuaishou.com/u/{id}',
-              },
-              'douyin': {
-                  'class': 'DouyinLiveStream',
-                  'url': lambda id: f'https://live.douyin.com/{id}',
-              },
-          }
-
-          def extract(data):
-              """从 streamget 返回数据中提取统一字段"""
-              if not data or not isinstance(data, dict):
+          async def fetch(module_name, class_name, url):
+              """通过 streamget 解析直播间状态"""
+              try:
+                  mod = __import__('streamget', fromlist=[class_name])
+                  cls = getattr(mod, class_name)
+                  stream = cls()
+                  data = await stream.fetch_web_stream_data(url=url)
+                  if not data or not isinstance(data, dict):
+                      return {"liveStatus": "offline"}
+                  # 提取开播状态
+                  status_keys = ['status','live_status','isLive','liveStatus','room_id']
+                  raw = None
+                  for k in status_keys:
+                      v = data.get(k)
+                      if v is not None: raw = v; break
+                  if raw is None:
+                      is_live = False
+                  elif isinstance(raw, bool):
+                      is_live = raw
+                  elif isinstance(raw, int):
+                      is_live = raw == 1
+                  elif isinstance(raw, str):
+                      is_live = raw.lower() in ('1','live','on','true')
+                  else:
+                      is_live = bool(raw)
+                  return {
+                      "liveStatus": "live" if is_live else "offline",
+                      "title": data.get("title","") or data.get("room_title","") or data.get("introduction","") or data.get("roomName","") or "",
+                      "viewerCount": data.get("viewer_count",0) or data.get("online",0) or data.get("online_count",0) or data.get("total_count",0) or data.get("viewerCount",0) or 0,
+                      "cover": data.get("cover","") or data.get("cover_url","") or data.get("user_cover","") or data.get("screenshot","") or "",
+                      "uname": data.get("anchor_name","") or data.get("nickname","") or data.get("nick","") or data.get("uname","") or "",
+                      "avatar": data.get("avatar","") or data.get("anchor_avatar","") or data.get("userAvatar","") or data.get("face","") or "",
+                  }
+              except Exception as e:
+                  # streamget 报错（比如账号被封、没在播）也视为 offline
                   return {"liveStatus": "offline"}
-
-              # 判断是否在播
-              status_keys = ['status','live_status','isLive','liveStatus','room_id']
-              raw_status = None
-              for k in status_keys:
-                  v = data.get(k)
-                  if v is not None:
-                      raw_status = v
-                      break
-
-              if raw_status is None:
-                  is_live = False
-              elif isinstance(raw_status, bool):
-                  is_live = raw_status
-              elif isinstance(raw_status, int):
-                  is_live = raw_status == 1
-              elif isinstance(raw_status, str):
-                  is_live = raw_status.lower() in ('1','live','on','true')
-              else:
-                  is_live = raw_status is not None and raw_status != 0
-
-              return {
-                  "liveStatus": "live" if is_live else "offline",
-                  "title": data.get("title","") or data.get("room_title","") or data.get("introduction","") or data.get("roomName","") or "",
-                  "viewerCount": data.get("viewer_count",0) or data.get("online",0) or data.get("online_count",0) or data.get("total_count",0) or data.get("viewerCount",0) or 0,
-                  "cover": data.get("cover","") or data.get("cover_url","") or data.get("user_cover","") or data.get("screenshot","") or "",
-                  "uname": data.get("anchor_name","") or data.get("nickname","") or data.get("nick","") or data.get("uname","") or "",
-                  "avatar": data.get("avatar","") or data.get("anchor_avatar","") or data.get("userAvatar","") or data.get("face","") or "",
-              }
 
           async def main():
               with open("rooms.json") as f:
                   rooms = json.load(f)
-
               results = []
               for r in rooms:
                   plat = r["platform"]
                   key = f"{plat}:{r['id']}"
                   entry = {"key": key, "platform": plat, "id": r["id"], "name": r.get("name","")}
-
-                  cfg = CONFIG.get(plat)
-                  if not cfg:
+                  if plat == "bilibili":
+                      info = await fetch('streamget', 'BilibiliLiveStream', f'https://live.bilibili.com/{r["id"]}')
+                  elif plat == "kuaishou":
+                      info = await fetch('streamget', 'KwaiLiveStream', f'https://live.kuaishou.com/u/{r["id"]}')
+                  elif plat == "douyin":
+                      info = await fetch('streamget', 'DouyinLiveStream', f'https://live.douyin.com/{r["id"]}')
+                  else:
                       entry["error"] = f"不支持的平台: {plat}"
                       results.append(entry)
                       continue
-
-                  try:
-                      # 动态导入平台类
-                      mod = __import__('streamget', fromlist=[cfg['class']])
-                      cls = getattr(mod, cfg['class'])
-                      stream = cls()
-                      url = cfg['url'](r['id'])
-
-                      data = await stream.fetch_web_stream_data(url=url)
-                      info = extract(data)
-                      entry.update(info)
-                      entry["fetchedAt"] = datetime.now(timezone.utc).isoformat()
-                  except Exception as e:
-                      entry["error"] = str(e)
-                      entry["fetchedAt"] = datetime.now(timezone.utc).isoformat()
-
+                  entry.update(info)
+                  entry["fetchedAt"] = datetime.now(timezone.utc).isoformat()
                   results.append(entry)
                   print(f"  {plat}/{r.get('name',r['id'])} → {entry.get('liveStatus', entry.get('error','?'))}")
 
