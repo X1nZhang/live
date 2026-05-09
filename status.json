@@ -5,13 +5,13 @@
       "platform": "bilibili",
       "id": "1742439556",
       "name": "激素猪",
-      "title": "横店守村人",
+      "title": "冲击奖励",
       "liveStatus": "live",
-      "viewerCount": 6094,
+      "viewerCount": 9903,
       "cover": "https://i0.hdslb.com/bfs/live/59fc254c1f51a962dbf69ae85e4920f2f6fb8dcd.png",
       "uname": "",
       "avatar": "",
-      "fetchedAt": "2026-05-09T10:37:47.862Z"
+      "fetchedAt": "2026-05-09T14:35:06.879Z"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/e4509b1d3f54d3816c6c8798b4699ea5c981a8b2.jpg",
       "uname": "",
       "avatar": "",
-      "fetchedAt": "2026-05-09T10:37:48.591Z"
+      "fetchedAt": "2026-05-09T14:35:07.561Z"
     },
     {
       "key": "kuaishou:2353452183",
@@ -33,8 +33,8 @@
       "name": "快手主播",
       "liveStatus": "offline",
       "title": "",
-      "fetchedAt": "2026-05-09T10:37:52.014772"
+      "fetchedAt": "2026-05-09T14:35:11.508333"
     }
   ],
-  "updatedAt": "2026-05-09T10:37:52.014942"
+  "updatedAt": "2026-05-09T14:35:11.508468"
 }
