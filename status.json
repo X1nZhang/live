@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-05-09T15:37:25.875140+00:00"
+      "fetchedAt": "2026-05-09T15:42:21.378900+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,15 +24,15 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-05-09T15:37:27.360184+00:00"
+      "fetchedAt": "2026-05-09T15:42:22.462179+00:00"
     },
     {
       "key": "kuaishou:2353452183",
       "platform": "kuaishou",
       "id": "2353452183",
       "name": "快手主播",
-      "error": "Failed to fetch data from https://live.kuaishou.com/u/2353452183.'NoneType' object has no attribute 'strip'",
-      "fetchedAt": "2026-05-09T15:37:27.360226+00:00"
+      "liveStatus": "offline",
+      "fetchedAt": "2026-05-09T15:42:22.462220+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,16 +42,11 @@
       "liveStatus": "offline",
       "title": "出差",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202605092337286434FD33AE987D924696&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1780933048&x-signature=4ChTANQE7DvsjE8A0yAhnZL6O5E%3D",
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202605092337286434FD33AE987D924696&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1780933048&x-signature=XagCu3gvqrxligz3e2OZ254nprA%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-05-09T15:37:29.124434+00:00"
+      "fetchedAt": "2026-05-09T15:42:23.234536+00:00"
     }
   ],
-  "updatedAt": "2026-05-09T15:37:29.124452+00:00"
+  "updatedAt": "2026-05-09T15:42:23.234553+00:00"
 }
