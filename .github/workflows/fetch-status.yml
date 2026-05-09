@@ -16,171 +16,110 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # ---- B站：Node.js 直连（已验证稳定） ----
-      - name: Fetch Bilibili status
-        run: |
-          node -e '
-          const fs = require("fs");
-          const rooms = JSON.parse(fs.readFileSync("rooms.json","utf8"));
-          const biliRooms = rooms.filter(r => r.platform === "bilibili");
-
-          async function main() {
-            const results = [];
-            for (const r of biliRooms) {
-              const key = r.platform + ":" + r.id;
-              try {
-                const res = await fetch("https://api.live.bilibili.com/room/v1/Room/get_info?room_id=" + r.id);
-                const d = await res.json();
-                if (d.code === 0 && d.data) {
-                  const info = d.data;
-                  const statusMap = {0:"offline",1:"live",2:"replay"};
-                  let uname="", avatar="";
-                  try {
-                    const ures = await fetch("https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id=" + r.id);
-                    const ud = await ures.json();
-                    if (ud.code === 0 && ud.data) {
-                      const ui = ud.data.info || ud.data;
-                      uname = ui.uname || ""; avatar = ui.avatar || ui.face || "";
-                    }
-                  } catch(e) {}
-                  results.push({
-                    key, platform: r.platform, id: r.id, name: r.name,
-                    title: info.title || "", liveStatus: statusMap[info.live_status] || "offline",
-                    viewerCount: info.online || 0, cover: info.user_cover || info.keyframe || "",
-                    uname, avatar, fetchedAt: new Date().toISOString()
-                  });
-                } else {
-                  results.push({key, platform: r.platform, id: r.id, name: r.name, error: d.message || "API error", fetchedAt: new Date().toISOString()});
-                }
-              } catch(e) {
-                results.push({key, platform: r.platform, id: r.id, name: r.name, error: e.message, fetchedAt: new Date().toISOString()});
-              }
-            }
-            // 先保存 B站的结果，后续步骤再追加快手
-            fs.writeFileSync("bilibili_results.json", JSON.stringify(results, null, 2));
-            console.log("Bilibili: " + results.length + " rooms");
-            results.forEach(r => console.log("  " + (r.name||r.id) + " → " + (r.liveStatus || r.error)));
-          }
-          main();
-          '
-
-      # ---- 快手：Python + requests 尝试 ----
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install deps
-        run: |
-          pip install requests streamget httpx[http2] pycryptodome -q
+      - name: Install streamget
+        run: pip install streamget httpx[http2] pycryptodome -q
 
-      - name: Fetch Kuaishou + Douyin status
+      - name: Fetch all rooms via streamget
         run: |
           python3 << 'PYEOF'
-          import json, requests, re, sys
+          import json, asyncio, os
+          from datetime import datetime, timezone
 
-          results = []
-          with open("rooms.json") as f:
-              rooms = json.load(f)
+          # 平台配置：类名 + URL 模板
+          CONFIG = {
+              'bilibili': {
+                  'class': 'BilibiliLiveStream',
+                  'url': lambda id: f'https://live.bilibili.com/{id}',
+              },
+              'kuaishou': {
+                  'class': 'KwaiLiveStream',
+                  'url': lambda id: f'https://live.kuaishou.com/u/{id}',
+              },
+              'douyin': {
+                  'class': 'DouyinLiveStream',
+                  'url': lambda id: f'https://live.douyin.com/{id}',
+              },
+          }
 
-          def fetch_kuaishou(r):
-              key = f"{r['platform']}:{r['id']}"
-              entry = {"key": key, "platform": "kuaishou", "id": r["id"], "name": r.get("name","")}
-              try:
-                  url = f"https://live.kuaishou.com/u/{r['id']}"
-                  headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-                  resp = requests.get(url, headers=headers, timeout=15)
-                  html = resp.text
-                  match = re.search(r'window\.__INITIAL_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
-                  if match:
-                      raw = match.group(1)
-                      try: state = json.loads(raw)
-                      except:
-                          raw = raw.replace("\\'", "'")
-                          state = json.loads(raw)
-                      if "liveroom" in state:
-                          lr = state["liveroom"]
-                          is_live = lr.get("liveStatus") == 1 or lr.get("isLive") == True or lr.get("status") == 1
-                          entry["title"] = lr.get("title","") or lr.get("roomName","") or ""
-                          entry["liveStatus"] = "live" if is_live else "offline"
-                          entry["viewerCount"] = lr.get("viewerCount",0) or lr.get("onlineCount",0) or 0
-                          entry["cover"] = lr.get("cover","") or lr.get("screenshot","") or ""
-                          entry["uname"] = lr.get("nickname","") or lr.get("nick","") or ""
-                          entry["avatar"] = lr.get("avatar","") or lr.get("userAvatar","") or ""
-                      else:
-                          entry["liveStatus"] = "offline"
-                  else:
-                      entry["liveStatus"] = "offline"
-                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
-              except Exception as e:
-                  entry["error"] = str(e)
-                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
-              print(f"  Kuaishou/{r.get('name',r['id'])} → {entry.get('liveStatus', entry.get('error','?'))}")
-              return entry
+          def extract(data):
+              """从 streamget 返回数据中提取统一字段"""
+              if not data or not isinstance(data, dict):
+                  return {"liveStatus": "offline"}
 
-          def fetch_douyin(r):
-              key = f"{r['platform']}:{r['id']}"
-              entry = {"key": key, "platform": "douyin", "id": r["id"], "name": r.get("name","")}
-              try:
-                  # 用 streamget 尝试获取抖音直播信息
-                  from streamget import DouyinLiveStream
-                  import asyncio
+              # 判断是否在播
+              status_keys = ['status','live_status','isLive','liveStatus','room_id']
+              raw_status = None
+              for k in status_keys:
+                  v = data.get(k)
+                  if v is not None:
+                      raw_status = v
+                      break
 
-                  async def get_info():
-                      dy = DouyinLiveStream()
-                      # 抖音直播间 URL
-                      url = f"https://live.douyin.com/{r['id']}"
-                      data = await dy.fetch_web_stream_data(url=url)
-                      if not data:
-                          # 如果 live.douyin.com 不行，试试 www.douyin.com
-                          url = f"https://www.douyin.com/user/{r['id']}"
-                          data = await dy.fetch_web_stream_data(url=url)
-                      return data
+              if raw_status is None:
+                  is_live = False
+              elif isinstance(raw_status, bool):
+                  is_live = raw_status
+              elif isinstance(raw_status, int):
+                  is_live = raw_status == 1
+              elif isinstance(raw_status, str):
+                  is_live = raw_status.lower() in ('1','live','on','true')
+              else:
+                  is_live = raw_status is not None and raw_status != 0
 
-                  info = asyncio.run(get_info())
-                  # streamget 返回的数据结构因平台而异
-                  # 尝试提取关键信息
-                  if info and isinstance(info, dict):
-                      # 直播状态
-                      status = info.get("status") or info.get("live_status") or info.get("isLive") or info.get("room_id")
-                      is_live = status is not None and status != 0 and status != "0" and status != "offline"
+              return {
+                  "liveStatus": "live" if is_live else "offline",
+                  "title": data.get("title","") or data.get("room_title","") or data.get("introduction","") or data.get("roomName","") or "",
+                  "viewerCount": data.get("viewer_count",0) or data.get("online",0) or data.get("online_count",0) or data.get("total_count",0) or data.get("viewerCount",0) or 0,
+                  "cover": data.get("cover","") or data.get("cover_url","") or data.get("user_cover","") or data.get("screenshot","") or "",
+                  "uname": data.get("anchor_name","") or data.get("nickname","") or data.get("nick","") or data.get("uname","") or "",
+                  "avatar": data.get("avatar","") or data.get("anchor_avatar","") or data.get("userAvatar","") or data.get("face","") or "",
+              }
 
-                      entry["title"] = info.get("title","") or info.get("room_title","") or ""
-                      entry["liveStatus"] = "live" if is_live else "offline"
-                      entry["viewerCount"] = info.get("viewer_count",0) or info.get("online_count",0) or info.get("total_count",0) or 0
-                      entry["cover"] = info.get("cover","") or info.get("cover_url","") or ""
-                      entry["uname"] = info.get("anchor_name","") or info.get("nickname","") or ""
-                      entry["avatar"] = info.get("avatar","") or info.get("anchor_avatar","") or ""
-                  else:
-                      entry["liveStatus"] = "offline"
-                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
-              except ImportError as e:
-                  entry["error"] = f"streamget 未安装: {e}"
-                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
-              except Exception as e:
-                  entry["error"] = f"抖音: {e}"
-                  entry["fetchedAt"] = __import__('datetime').datetime.now().isoformat()
-              print(f"  Douyin/{r.get('name',r['id'])} → {entry.get('liveStatus', entry.get('error','?'))}")
-              return entry
+          async def main():
+              with open("rooms.json") as f:
+                  rooms = json.load(f)
 
-          for r in rooms:
-              if r["platform"] == "kuaishou":
-                  results.append(fetch_kuaishou(r))
-              elif r["platform"] == "douyin":
-                  results.append(fetch_douyin(r))
+              results = []
+              for r in rooms:
+                  plat = r["platform"]
+                  key = f"{plat}:{r['id']}"
+                  entry = {"key": key, "platform": plat, "id": r["id"], "name": r.get("name","")}
 
-          # 合并 B站结果
-          all_results = []
-          try:
-              with open("bilibili_results.json") as f:
-                  all_results = json.load(f)
-          except: pass
-          all_results += results
+                  cfg = CONFIG.get(plat)
+                  if not cfg:
+                      entry["error"] = f"不支持的平台: {plat}"
+                      results.append(entry)
+                      continue
 
-          output = {"rooms": all_results, "updatedAt": __import__('datetime').datetime.now().isoformat()}
-          with open("status.json", "w") as f:
-              json.dump(output, f, ensure_ascii=False, indent=2)
-          print(f"Total: {len(all_results)} rooms")
+                  try:
+                      # 动态导入平台类
+                      mod = __import__('streamget', fromlist=[cfg['class']])
+                      cls = getattr(mod, cfg['class'])
+                      stream = cls()
+                      url = cfg['url'](r['id'])
+
+                      data = await stream.fetch_web_stream_data(url=url)
+                      info = extract(data)
+                      entry.update(info)
+                      entry["fetchedAt"] = datetime.now(timezone.utc).isoformat()
+                  except Exception as e:
+                      entry["error"] = str(e)
+                      entry["fetchedAt"] = datetime.now(timezone.utc).isoformat()
+
+                  results.append(entry)
+                  print(f"  {plat}/{r.get('name',r['id'])} → {entry.get('liveStatus', entry.get('error','?'))}")
+
+              output = {"rooms": results, "updatedAt": datetime.now(timezone.utc).isoformat()}
+              with open("status.json", "w") as f:
+                  json.dump(output, f, ensure_ascii=False, indent=2)
+              print(f"Total: {len(results)} rooms")
+
+          asyncio.run(main())
           PYEOF
 
       - name: Commit and push
