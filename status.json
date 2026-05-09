@@ -5,53 +5,53 @@
       "platform": "bilibili",
       "id": "1742439556",
       "name": "激素猪",
-      "title": "冲击奖励",
       "liveStatus": "offline",
+      "title": "冲击奖励",
       "viewerCount": 0,
-      "cover": "https://i0.hdslb.com/bfs/live/59fc254c1f51a962dbf69ae85e4920f2f6fb8dcd.png",
-      "uname": "",
+      "cover": "",
+      "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-05-09T15:31:01.114Z"
+      "fetchedAt": "2026-05-09T15:37:25.875140+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "title": "起来工作",
       "liveStatus": "offline",
+      "title": "起来工作",
       "viewerCount": 0,
-      "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/e4509b1d3f54d3816c6c8798b4699ea5c981a8b2.jpg",
-      "uname": "",
+      "cover": "",
+      "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-05-09T15:31:01.772Z"
+      "fetchedAt": "2026-05-09T15:37:27.360184+00:00"
     },
     {
       "key": "kuaishou:2353452183",
       "platform": "kuaishou",
       "id": "2353452183",
       "name": "快手主播",
-      "liveStatus": "offline",
-      "fetchedAt": "2026-05-09T15:31:11.117108"
+      "error": "Failed to fetch data from https://live.kuaishou.com/u/2353452183.'NoneType' object has no attribute 'strip'",
+      "fetchedAt": "2026-05-09T15:37:27.360226+00:00"
     },
     {
       "key": "douyin:Ccc3392",
       "platform": "douyin",
       "id": "Ccc3392",
       "name": "抖音主播",
+      "liveStatus": "offline",
       "title": "出差",
-      "liveStatus": "live",
       "viewerCount": 0,
       "cover": {
         "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260509233112F078E7AA0293E28D9F1D&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1780932672&x-signature=yboChpzqhQ0NemCNOzHMumYKJI4%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260509233112F078E7AA0293E28D9F1D&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1780932672&x-signature=1Lc2Rg1Oye2IUtniGBfY4%2Fxzrvw%3D"
+          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202605092337286434FD33AE987D924696&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1780933048&x-signature=4ChTANQE7DvsjE8A0yAhnZL6O5E%3D",
+          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202605092337286434FD33AE987D924696&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1780933048&x-signature=XagCu3gvqrxligz3e2OZ254nprA%3D"
         ]
       },
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-05-09T15:31:12.393015"
+      "fetchedAt": "2026-05-09T15:37:29.124434+00:00"
     }
   ],
-  "updatedAt": "2026-05-09T15:31:12.393146"
+  "updatedAt": "2026-05-09T15:37:29.124452+00:00"
 }
