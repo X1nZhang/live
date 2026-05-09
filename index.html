@@ -338,7 +338,7 @@
   <div class="header-controls">
     <span class="status-summary" id="statusSummary">加载中...</span>
     <span class="last-update" id="lastUpdate"></span>
-    <button class="btn" id="refreshBtn" onclick="refreshAll()">🔄 刷新</button>
+    <button class="btn" id="refreshBtn" onclick="refreshAll(true)">🔄 刷新</button>
     <a class="btn" id="adminLink" href="#admin">🔒 管理</a>
   </div>
 </div>
@@ -582,34 +582,35 @@ function render(roomDataMap, errors) {
 // ===================== 数据获取 =====================
 const STATUS_JSON_URL = '/live/status.json';
 
-async function refreshAll() {
+async function refreshAll(isManualRefresh) {
   const btn = document.getElementById('refreshBtn');
   btn.disabled = true; btn.textContent = '⏳ 刷新中...';
   const roomDataMap = {}, errors = {};
+  let useProxy = isManualRefresh;  // 手动刷新走代理实时拉取
 
-  // 优先从 status.json 读取（GitHub Actions 自动更新，无 CORS 问题）
-  try {
-    const resp = await fetch(STATUS_JSON_URL + '?t=' + Date.now());
-    if (resp.ok) {
-      const data = await resp.json();
-      if (data.rooms && data.rooms.length > 0) {
-        data.rooms.forEach(r => {
-          if (r.error) {
-            errors[r.key] = r.error;
-          } else {
-            roomDataMap[r.key] = r;
-          }
-        });
-        render(roomDataMap, errors);
-        document.getElementById('lastUpdate').textContent =
-          '更新于 ' + new Date(data.updatedAt).toLocaleTimeString('zh-CN') + ' (GitHub Actions)';
-        btn.disabled = false; btn.textContent = '🔄 刷新';
-        return;
+  if (!useProxy) {
+    // 首次/定时刷新：先尝试读取 status.json（速度快，无 CORS 问题）
+    try {
+      const resp = await fetch(STATUS_JSON_URL + '?t=' + Date.now());
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.rooms && data.rooms.length > 0) {
+          data.rooms.forEach(r => {
+            if (r.error) errors[r.key] = r.error;
+            else roomDataMap[r.key] = r;
+          });
+          render(roomDataMap, errors);
+          document.getElementById('lastUpdate').textContent =
+            '更新于 ' + new Date(data.updatedAt).toLocaleTimeString('zh-CN') + ' (缓存)';
+          btn.disabled = false; btn.textContent = '🔄 刷新';
+          return;
+        }
       }
-    }
-  } catch (_) { /* fallback to live API */ }
+    } catch (_) {}
+    useProxy = true;  // status.json 失败了，走代理
+  }
 
-  // 备用：直连 API（通过 CORS 代理）
+  // 手动刷新 或 status.json 不可用时：通过代理实时拉取
   const results = await Promise.allSettled(rooms.map(async (room) => {
     const key = room.platform + ':' + room.id;
     const fetcher = API[room.platform];
