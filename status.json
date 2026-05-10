@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-05-10T07:35:25.782849+00:00"
+      "fetchedAt": "2026-05-10T11:15:40.606427+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-05-10T07:35:27.104264+00:00"
+      "fetchedAt": "2026-05-10T11:15:42.158862+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-05-10T07:35:27.104300+00:00"
+      "fetchedAt": "2026-05-10T11:15:42.158923+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-05-10T07:35:29.487506+00:00"
+      "fetchedAt": "2026-05-10T11:15:43.496917+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "租房找房",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-05-10T07:35:30.743688+00:00"
+      "fetchedAt": "2026-05-10T11:15:45.239922+00:00"
     }
   ],
-  "updatedAt": "2026-05-10T07:35:30.743724+00:00"
+  "updatedAt": "2026-05-10T11:15:45.239939+00:00"
 }
