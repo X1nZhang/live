@@ -6,39 +6,45 @@
 <title>直播间开播监控</title>
 <style>
   :root {
-    --bg: #0f0f11;
-    --card-bg: #1a1a1e;
-    --card-border: #2a2a30;
-    --text: #e8e8ea;
-    --text-secondary: #88889a;
+    --bg: #0a0a0f;
+    --card-bg: #141418;
+    --card-border: #252530;
+    --text: #efeff1;
+    --text-secondary: #8a8a9e;
     --live-color: #00d45a;
+    --live-glow: rgba(0,212,90,.15);
     --offline-color: #555;
     --accent: #fb7299;
     --bili-blue: #00a1d6;
+    --douyin-pink: #ee2c5c;
+    --kuaishou-red: #ff4d4f;
     --warn: #f59e0b;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
     background: var(--bg);
+    background-image: radial-gradient(ellipse at 20% 20%, rgba(251,114,153,.04) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 80%, rgba(0,161,214,.04) 0%, transparent 60%);
     color: var(--text);
     min-height: 100vh;
-    padding: 32px 24px;
+    padding: 28px 24px;
   }
 
   /* ============ 顶部 ============ */
   .header {
     max-width: 1200px;
-    margin: 0 auto 32px;
+    margin: 0 auto 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
   }
   .header h1 {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -.3px;
     background: linear-gradient(135deg, #fb7299, #00a1d6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -47,30 +53,45 @@
   .header-controls {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
   }
-  .status-summary { font-size: 14px; color: var(--text-secondary); }
-  .status-summary .count-live { color: var(--live-color); font-weight: 600; }
+  .status-summary {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    background: rgba(255,255,255,.04);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .status-summary .count-live { color: var(--live-color); font-weight: 700; }
+  .status-summary .count-total { color: var(--text-secondary); }
   .btn {
-    padding: 8px 20px;
+    padding: 7px 18px;
     border: 1px solid var(--card-border);
     border-radius: 8px;
     background: var(--card-bg);
-    color: var(--text);
-    font-size: 14px;
+    color: var(--text-secondary);
+    font-size: 13px;
     cursor: pointer;
-    transition: all .2s;
+    transition: all .25s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    font-weight: 500;
   }
-  .btn:hover { border-color: var(--accent); color: var(--accent); }
-  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(251,114,153,.06); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
   .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .btn-primary:hover { opacity: .8; color: #fff; }
-  .last-update { font-size: 13px; color: var(--text-secondary); }
+  .btn-primary:hover { opacity: .85; color: #fff; background: var(--accent); }
+  .btn-spin .btn-icon { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .last-update {
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: .7;
+  }
 
   /* ============ 通知 ============ */
   .notice {
@@ -89,23 +110,45 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
   .room-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    transition: border-color .2s, box-shadow .2s, transform .15s;
+    transition: border-color .3s ease, box-shadow .4s ease, transform .25s ease;
     position: relative;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
     display: block;
+    animation: cardEnter .4s ease both;
   }
-  .room-card:hover { border-color: #444; transform: translateY(-2px); }
-  .room-card:active { transform: translateY(0); }
-  .room-card.live { border-color: var(--live-color); box-shadow: 0 0 20px rgba(0, 212, 90, .08); }
+  .room-card:nth-child(1) { animation-delay: 0s; }
+  .room-card:nth-child(2) { animation-delay: .05s; }
+  .room-card:nth-child(3) { animation-delay: .1s; }
+  .room-card:nth-child(4) { animation-delay: .15s; }
+  .room-card:nth-child(5) { animation-delay: .2s; }
+  .room-card:nth-child(6) { animation-delay: .25s; }
+  .room-card:nth-child(7) { animation-delay: .3s; }
+  .room-card:nth-child(8) { animation-delay: .35s; }
+  @keyframes cardEnter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .room-card:hover { border-color: #3a3a4a; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.3); }
+  .room-card:active { transform: translateY(-1px); }
+  .room-card.live {
+    border-color: var(--live-color);
+    box-shadow: 0 0 24px var(--live-glow);
+    animation: livePulse 3s ease-in-out infinite, cardEnter .4s ease both;
+  }
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 18px var(--live-glow); }
+    50% { box-shadow: 0 0 32px var(--live-glow), 0 0 60px rgba(0,212,90,.05); }
+  }
+  .room-card.live:hover { box-shadow: 0 0 32px var(--live-glow), 0 8px 30px rgba(0,0,0,.3); }
   .cover-wrap {
     position: relative;
     width: 100%;
@@ -132,37 +175,42 @@
   .live-badge {
     position: absolute;
     top: 10px; left: 10px;
-    padding: 3px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
+    padding: 4px 12px 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
   }
-  .live-badge.live { background: rgba(0, 212, 90, .9); color: #fff; }
+  .live-badge.live { background: rgba(0, 212, 90, .92); color: #fff; }
   .live-badge.live::before {
     content: '';
-    width: 6px; height: 6px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: #fff;
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: dotPulse 1.5s ease-in-out infinite;
   }
-  .live-badge.offline { background: rgba(85, 85, 85, .85); color: #aaa; }
-  .live-badge.replay { background: rgba(251, 114, 153, .85); color: #fff; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+  @keyframes dotPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.7); } }
+  .live-badge.offline { background: rgba(85, 85, 85, .8); color: #999; }
+  .live-badge.replay { background: rgba(251, 114, 153, .88); color: #fff; }
   .viewer-count {
     position: absolute;
     bottom: 10px; right: 10px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: rgba(0,0,0,.7);
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(4px);
     color: #fff;
     font-size: 12px;
+    font-weight: 500;
   }
   .room-info { padding: 14px 16px; }
   .room-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 8px;
@@ -170,46 +218,63 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .room-title.live-title { color: var(--text); }
   .room-title.offline-title { color: var(--text-secondary); }
   .room-meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-secondary);
   }
-  .room-owner { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .room-owner { display: flex; align-items: center; gap: 6px; min-width: 0; }
   .room-owner .avatar {
-    width: 24px; height: 24px;
+    width: 22px; height: 22px;
     border-radius: 50%;
     background: #2a2a30;
     flex-shrink: 0;
     overflow: hidden;
   }
   .room-owner .avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .room-owner span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .room-owner span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+  .platform-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+  .platform-dot.bilibili { background: var(--bili-blue); }
+  .platform-dot.douyin { background: #fff; border: 1px solid rgba(255,255,255,.3); }
+  .platform-dot.kuaishou { background: var(--kuaishou-red); }
+  .platform-dot.douyu { background: var(--accent); }
+  .platform-dot.huya { background: #f90; }
+  .platform-dot.other { background: var(--text-secondary); }
   .platform-tag {
-    padding: 2px 6px;
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
     flex-shrink: 0;
   }
-  .platform-tag.bilibili { background: rgba(0,161,214,.15); color: var(--bili-blue); }
-  .platform-tag.douyu { background: rgba(251,114,153,.15); color: var(--accent); }
-  .platform-tag.huya { background: rgba(255,153,0,.15); color: #f90; }
-  .platform-tag.kuaishou { background: rgba(255,0,0,.15); color: #ff4d4f; }
-  .platform-tag.douyin { background: rgba(0,0,0,.2); color: #fff; }
-  .platform-tag.other { background: rgba(136,136,154,.15); color: var(--text-secondary); }
-  .room-error { font-size: 12px; color: #ef4444; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .platform-tag.bilibili { background: var(--bili-blue); color: #fff; }
+  .platform-tag.douyin { background: #1a1a2e; color: #fff; border: 1px solid rgba(255,255,255,.1); }
+  .platform-tag.kuaishou { background: var(--kuaishou-red); color: #fff; }
+  .platform-tag.douyu { background: var(--accent); color: #fff; }
+  .platform-tag.huya { background: #f90; color: #fff; }
+  .platform-tag.other { background: #555; color: #ccc; }
+  .room-error { font-size: 11px; color: #ef4444; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 2px 0; }
 
   /* ============ 登录 ============ */
   .login-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.7);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 100;
     align-items: center;
     justify-content: center;
@@ -218,15 +283,17 @@
   .login-box {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 40px 36px;
-    width: 360px;
+    border-radius: 20px;
+    padding: 36px 32px;
+    width: 340px;
     max-width: 90vw;
+    box-shadow: 0 24px 80px rgba(0,0,0,.5);
   }
   .login-box h2 {
     text-align: center;
-    margin-bottom: 28px;
-    font-size: 20px;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 700;
     background: linear-gradient(135deg, #fb7299, #00a1d6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -234,7 +301,8 @@
   }
   .login-box label {
     display: block;
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 600;
     color: var(--text-secondary);
     margin-bottom: 6px;
   }
@@ -243,15 +311,15 @@
     padding: 10px 14px;
     background: #0a0a0c;
     border: 1px solid var(--card-border);
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--text);
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 16px;
     outline: none;
-    transition: border-color .2s;
+    transition: border-color .2s, box-shadow .2s;
   }
-  .login-box input:focus { border-color: var(--accent); }
-  .login-box .btn { width: 100%; justify-content: center; padding: 10px; font-size: 15px; }
+  .login-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(251,114,153,.1); }
+  .login-box .btn { width: 100%; justify-content: center; padding: 10px; font-size: 14px; border-radius: 10px; }
   .login-error {
     color: #ef4444;
     font-size: 13px;
@@ -265,37 +333,40 @@
     display: none;
     max-width: 1200px;
     margin: 0 auto 24px;
-    padding: 20px 24px;
+    padding: 24px 28px;
     background: var(--card-bg);
-    border: 1px solid var(--accent);
-    border-radius: 12px;
+    border: 1px solid rgba(251,114,153,.25);
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(251,114,153,.04);
   }
-  .admin-panel.show { display: block; }
+  .admin-panel.show { display: block; animation: cardEnter .3s ease both; }
   .admin-panel h3 {
-    font-size: 16px;
-    margin-bottom: 16px;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--accent);
+    letter-spacing: -.2px;
   }
   .admin-panel label {
     display: block;
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 600;
     color: var(--text-secondary);
     margin-bottom: 6px;
   }
   .admin-panel textarea {
     width: 100%;
-    min-height: 120px;
-    padding: 12px;
+    min-height: 100px;
+    padding: 12px 14px;
     background: #0a0a0c;
     border: 1px solid var(--card-border);
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--text);
     font-size: 13px;
     font-family: "Cascadia Code", "Fira Code", monospace;
     resize: vertical;
     line-height: 1.6;
   }
-  .admin-panel textarea:focus { outline: none; border-color: var(--accent); }
+  .admin-panel textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(251,114,153,.08); }
   .admin-hint {
     margin-top: 8px;
     font-size: 12px;
@@ -303,9 +374,9 @@
     line-height: 1.6;
   }
   .admin-actions {
-    margin-top: 12px;
+    margin-top: 14px;
     display: flex;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
   }
   .admin-bar {
@@ -314,20 +385,22 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--card-border);
   }
   .admin-user {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-secondary);
   }
 
   /* ============ 响应式 ============ */
   @media (max-width: 640px) {
     body { padding: 16px 12px; }
-    .rooms-grid { grid-template-columns: 1fr; }
+    .rooms-grid { grid-template-columns: 1fr; gap: 12px; }
     .header { flex-direction: column; align-items: flex-start; }
+    .header h1 { font-size: 20px; }
+    .admin-panel { padding: 16px; }
   }
 </style>
 </head>
@@ -376,13 +449,6 @@
   <textarea id="adminConfig" spellcheck="false"></textarea>
   <div class="admin-hint">支持平台：<code>bilibili</code>（B站）、<code>douyin</code>（抖音）、<code>kuaishou</code>（快手）</div>
 
-  <div style="margin-top:12px">
-    <label for="adminProxy">CORS 代理地址</label>
-    <input type="text" id="adminProxy" style="width:100%;padding:8px 12px;background:#0a0a0c;border:1px solid var(--card-border);border-radius:6px;color:var(--text);font-size:13px;font-family:monospace">
-  </div>
-
-  <div class="admin-hint" style="margin-top:4px">留空使用默认公共代理。从 HTTP 服务器访问时可不填（直连 B站 API）。</div>
-
   <div class="admin-actions">
     <button class="btn btn-primary" onclick="adminSave()">💾 保存配置</button>
     <button class="btn" onclick="adminReset()">↩️ 恢复默认</button>
@@ -391,7 +457,6 @@
 
 <!-- ============== 房间网格 ============== -->
 <div class="rooms-grid" id="roomsGrid">
-  <div class="error-msg">正在加载房间列表...</div>
 </div>
 
 <script>
@@ -409,12 +474,10 @@ const DEFAULT_ROOMS = [
   { platform: 'bilibili', id: '3103670',    name: '烂牙' },
   { platform: 'douyin',   id: 'Ccc3392',   name: '抖音主播' },
 ];
-const DEFAULT_PROXY = 'https://api.allorigins.win/raw?url=';
-const REFRESH_INTERVAL = 40000;
+const REFRESH_INTERVAL = 30000;
 
 // ===================== 状态 =====================
 let rooms = [];
-let proxyUrl = DEFAULT_PROXY;
 let timer = null;
 
 // ===================== 存储 =====================
@@ -427,103 +490,6 @@ function loadRooms() {
 function saveRooms(r) {
   localStorage.setItem('live_monitor_rooms', JSON.stringify(r));
 }
-function loadProxy() {
-  try {
-    return localStorage.getItem('live_monitor_proxy') || DEFAULT_PROXY;
-  } catch(e) { return DEFAULT_PROXY; }
-}
-function saveProxy(p) {
-  localStorage.setItem('live_monitor_proxy', p);
-}
-
-// ===================== 带 CORS 代理的 fetch =====================
-// 判断是否需要代理（HTTPS/GitHub Pages 下直连 B站 API 会跨域失败）
-const needsProxy = window.location.protocol === 'https:' ||
-                    window.location.hostname.endsWith('.github.io');
-
-async function fetchViaProxy(url) {
-  // 需要代理时直接走代理，跳过直连（省一次失败等待）
-  if (needsProxy && proxyUrl) {
-    const resp = await fetch(proxyUrl + encodeURIComponent(url));
-    if (!resp.ok) throw new Error(`代理返回 HTTP ${resp.status}`);
-    return JSON.parse(await resp.text());
-  }
-  // 本地环境先试直连
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-  return resp.json();
-}
-
-// ===================== API 封装 =====================
-const API = {
-  async bilibili(roomId) {
-    const infoUrl = `https://api.live.bilibili.com/room/v1/Room/get_info?room_id=${roomId}`;
-    const userUrl = `https://api.live.bilibili.com/live_user/v1/UserInfo/get_anchor_in_room?room_id=${roomId}`;
-    // 房间信息和用户信息并行获取
-    const [infoData, userData] = await Promise.allSettled([
-      fetchViaProxy(infoUrl),
-      fetchViaProxy(userUrl)
-    ]);
-
-    if (infoData.status !== 'fulfilled') throw new Error('B站 API 错误: ' + (infoData.reason?.message || ''));
-    const info = infoData.value;
-    if (info.code !== 0) throw new Error(info.message || 'B站 API 错误');
-    const data = info.data;
-    let avatar = '', uname = '';
-    if (userData.status === 'fulfilled' && userData.value?.code === 0 && userData.value?.data) {
-      const ui = userData.value.data.info || userData.value.data;
-      uname = ui.uname || uname;
-      avatar = ui.avatar || ui.face || '';
-    }
-    const statusMap = { 0: 'offline', 1: 'live', 2: 'replay' };
-    return {
-      title: data.title || '未开播',
-      liveStatus: statusMap[info.live_status] || 'offline',
-      viewerCount: data.online || 0,
-      cover: data.user_cover || data.keyframe || '',
-      uname, avatar,
-      roomId: String(data.room_id || roomId),
-    };
-  },
-  async douyu(roomId) {
-    const data = await fetchViaProxy(`https://open.douyucdn.cn/api/RoomApi/room/${roomId}`);
-    if (data.error !== 0) throw new Error(data.data || '斗鱼 API 错误');
-    const d = data.data;
-    return {
-      title: d.room_name || '未开播',
-      liveStatus: d.room_status === '1' ? 'live' : 'offline',
-      viewerCount: parseInt(d.online) || 0,
-      cover: d.room_src || d.room_pic || '',
-      uname: d.nickname || '',
-      avatar: d.avatar?.small || d.owner_avatar || '',
-      roomId: String(roomId),
-    };
-  },
-  async huya(roomId) {
-    if (!proxyUrl) throw new Error('虎牙必须通过 CORS 代理');
-    const resp = await fetch(proxyUrl + encodeURIComponent('https://m.huya.com/' + roomId));
-    const html = await resp.text();
-    let liveStatus = 'offline', title = '未开播', uname = '', avatar = '', viewerCount = 0, cover = '';
-    const m = html.match(/<script>window\.__INITIAL_STATE__\s*=\s*({[\s\S]*?})<\/script>/);
-    if (m) try {
-      const state = JSON.parse(m[1]);
-      const ri = state.roomInfo || state;
-      const pf = ri.profileInfo || ri.roomInfo || ri;
-      uname = pf.nick || pf.name || uname;
-      avatar = pf.avatar || avatar;
-      const li = ri.liveInfo || ri.roomInfo || ri;
-      title = li.introduction || li.roomName || li.title || title;
-      liveStatus = li.liveStatus === 'ON' || li.liveStatus === 1 || li.isLive === true ? 'live' : 'offline';
-      viewerCount = parseInt(li.totalCount) || parseInt(li.activityCount) || 0;
-      cover = (li.screenshot || li.roomImg || '').replace(/^\/\//, 'https://');
-    } catch(_) {}
-    if (!uname) { const n = html.match(/<span class="host-name"[^>]*>([^<]+)</); if (n) uname = n[1]; }
-    return { title, liveStatus, viewerCount, cover, uname, avatar, roomId: String(roomId) };
-  },
-  // fallback: 抖音/快手无公开 API，走 status.json 读取
-  async douyin() { return { liveStatus: 'offline', title: '暂不支持实时查询' }; },
-  async kuaishou() { return { liveStatus: 'offline', title: '暂不支持实时查询' }; },
-};
 
 // ===================== 房间跳转链接 =====================
 function getRoomUrl(platform, id) {
@@ -562,10 +528,10 @@ function renderRoom(room, data, error) {
       ${sv ? `<span class="viewer-count">👁 ${formatViewers(data.viewerCount)}</span>` : ''}
     </div>
     <div class="room-info">
-      <div class="room-title ${data?.liveStatus !== 'live' ? 'offline-title' : ''}">${data?.title || (error ? '出错了' : '加载中...')}</div>
+      <div class="room-title ${data?.liveStatus !== 'live' ? 'offline-title' : ''}">${data?.title || (error ? '出错了' : (data ? '未开播' : '待同步'))}</div>
       <div class="room-meta">
         <div class="room-owner"><div class="avatar">${data?.avatar ? `<img src="${data.avatar}" onerror="this.style.display='none'">` : ''}</div><span>${data?.uname || room.name || room.id}</span></div>
-        <span class="platform-tag ${room.platform}">${room.platform}</span>
+        <span class="platform-tag ${room.platform}"><span class="platform-dot ${room.platform}"></span>${room.platform}</span>
       </div>
       ${error ? `<div class="room-error">❌ ${error}</div>` : ''}
     </div>`;
@@ -587,69 +553,41 @@ function render(roomDataMap, errors) {
 }
 
 // ===================== 数据获取 =====================
-const STATUS_JSON_URL = '/live/status.json';
+const STATUS_JSON_URL = '/status.json';
 
-async function refreshAll(isManualRefresh) {
+async function refreshAll() {
   const btn = document.getElementById('refreshBtn');
   btn.disabled = true; btn.textContent = '⏳ 刷新中...';
   const roomDataMap = {}, errors = {};
-  let useProxy = isManualRefresh;  // 手动刷新走代理实时拉取
 
-  if (!useProxy) {
-    // 首次/定时刷新：先尝试读取 status.json（速度快，无 CORS 问题）
-    try {
-      const resp = await fetch(STATUS_JSON_URL + '?t=' + Date.now());
-      if (resp.ok) {
-        const data = await resp.json();
-        if (data.rooms && data.rooms.length > 0) {
-          data.rooms.forEach(r => {
-            if (r.error) errors[r.key] = r.error;
-            else roomDataMap[r.key] = r;
-          });
-          render(roomDataMap, errors);
-          document.getElementById('lastUpdate').textContent =
-            '更新于 ' + new Date(data.updatedAt).toLocaleTimeString('zh-CN') + ' (缓存)';
-          btn.disabled = false; btn.textContent = '🔄 刷新';
-          return;
-        }
+  try {
+    const resp = await fetch(STATUS_JSON_URL + '?t=' + Date.now());
+    if (resp.ok) {
+      const data = await resp.json();
+      if (data.rooms && data.rooms.length > 0) {
+        data.rooms.forEach(r => {
+          if (r.error) errors[r.key] = r.error;
+          else roomDataMap[r.key] = r;
+        });
       }
-    } catch (_) {}
-    useProxy = true;  // status.json 失败了，走代理
-  }
-
-  // 手动刷新 或 status.json 不可用时：通过代理实时拉取
-  const results = await Promise.allSettled(rooms.map(async (room) => {
-    const key = room.platform + ':' + room.id;
-    const fetcher = API[room.platform];
-    if (!fetcher) throw new Error(`不支持的平台: ${room.platform}`);
-    const data = await fetcher(room.id);
-    return { key, data };
-  }));
-
-  results.forEach((res, i) => {
-    if (res.status === 'fulfilled') {
-      roomDataMap[res.value.key] = res.value.data;
-    } else {
-      const key = rooms[i].platform + ':' + rooms[i].id;
-      errors[key] = res.reason?.message || String(res.reason);
     }
-  });
+  } catch (_) {}
+
   render(roomDataMap, errors);
-  document.getElementById('lastUpdate').textContent = '上次更新: ' + new Date().toLocaleTimeString('zh-CN');
+  document.getElementById('lastUpdate').textContent = '更新于 ' + new Date().toLocaleString('zh-CN');
   btn.disabled = false; btn.textContent = '🔄 刷新';
 }
 
 // ===================== 启动监控 =====================
 function startMonitoring() {
   if (timer) clearInterval(timer);
-  refreshAll();
+  // 首次加载保留 SSR 预渲染卡片，JS 只负责定时刷新
   timer = setInterval(refreshAll, REFRESH_INTERVAL);
 }
 
 function initRooms() {
   const saved = loadRooms();
   rooms = saved || [...DEFAULT_ROOMS];
-  proxyUrl = loadProxy();
   startMonitoring();
 }
 
@@ -692,7 +630,6 @@ function showAdminPanel() {
   document.getElementById('adminConfig').value = rooms.map(r =>
     `${r.platform} ${r.id} ${r.name || ''}`.trim()
   ).join('\n');
-  document.getElementById('adminProxy').value = proxyUrl;
   document.getElementById('adminLink').textContent = '⚙️ 配置';
   document.getElementById('adminLink').href = '#admin';
 }
@@ -713,23 +650,28 @@ function adminSave() {
   rooms = parsed;
   saveRooms(parsed);
 
-  const p = document.getElementById('adminProxy').value.trim();
-  if (p) { proxyUrl = p; saveProxy(p); }
-
-  startMonitoring();
-  alert('✅ 配置已保存');
+  // 同步新房间到服务端
+  fetch('/api/rooms', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({action: 'update', rooms: parsed})
+  }).then(r => r.json()).then(d => {
+    console.log('Server sync:', d);
+    refreshAll();
+    alert('✅ 配置已保存' + (d.ok ? '' : '，但服务端同步失败'));
+  }).catch(() => {
+    refreshAll();
+    alert('✅ 配置已保存（本地）');
+  });
 }
 
 function adminReset() {
   rooms = [...DEFAULT_ROOMS];
-  proxyUrl = DEFAULT_PROXY;
   saveRooms(DEFAULT_ROOMS);
-  saveProxy(DEFAULT_PROXY);
   document.getElementById('adminConfig').value = rooms.map(r =>
     `${r.platform} ${r.id} ${r.name || ''}`.trim()
   ).join('\n');
-  document.getElementById('adminProxy').value = DEFAULT_PROXY;
-  startMonitoring();
+  refreshAll();
   alert('✅ 已恢复默认配置');
 }
 
@@ -767,13 +709,6 @@ initRooms();
 // 检查是否需要进入管理界面
 if (location.hash === '#admin') {
   handleHashChange();
-}
-
-// file:// 提示
-if (window.location.protocol === 'file:') {
-  document.getElementById('notice').className = 'notice warn';
-  document.getElementById('notice').innerHTML = '💡 从 file:// 直接打开可能因跨域限制无法获取数据。建议用 <code>python -m http.server 8080</code> 启动临时服务器访问。';
-}
-</script>
+}</script>
 </body>
 </html>
