@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-05-19T18:18:24.256463+00:00"
+      "fetchedAt": "2026-05-19T22:46:58.460906+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-05-19T18:18:25.683838+00:00"
+      "fetchedAt": "2026-05-19T22:46:59.687784+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-05-19T18:18:25.683872+00:00"
+      "fetchedAt": "2026-05-19T22:46:59.687823+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "出差",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/webcast-cover/7500179916315691788~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202605200218277D98FBBC65E42287D273&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1781806707&x-signature=uIfcIdtBsO6ppYUJsQiY3kUacBE%3D",
-          "https://p3-webcast-sign.douyinpic.com/webcast-cover/7500179916315691788~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202605200218277D98FBBC65E42287D273&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1781806707&x-signature=BUlQkpYHy3mxSQ6kRNuOufxIPs0%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-05-19T18:18:27.971983+00:00"
+      "fetchedAt": "2026-05-19T22:47:01.478653+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-05-19T18:18:29.367630+00:00"
+      "fetchedAt": "2026-05-19T22:47:02.929953+00:00"
     }
   ],
-  "updatedAt": "2026-05-19T18:18:29.367644+00:00"
+  "updatedAt": "2026-05-19T22:47:02.929968+00:00"
 }
