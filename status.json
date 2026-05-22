@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-05-22T10:34:56.284745+00:00"
+      "fetchedAt": "2026-05-22T17:26:50.721101+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "1000元挑战2000人头",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-05-22T10:34:57.483051+00:00"
+      "fetchedAt": "2026-05-22T17:26:51.750015+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-05-22T10:34:57.483080+00:00"
+      "fetchedAt": "2026-05-22T17:26:51.750059+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-05-22T10:34:58.825042+00:00"
+      "fetchedAt": "2026-05-22T17:26:53.876732+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-05-22T10:34:59.901798+00:00"
+      "fetchedAt": "2026-05-22T17:26:54.855737+00:00"
     }
   ],
-  "updatedAt": "2026-05-22T10:34:59.901812+00:00"
+  "updatedAt": "2026-05-22T17:26:54.855752+00:00"
 }
