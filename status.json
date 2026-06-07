@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-06-07T04:20:41.674380+00:00"
+      "fetchedAt": "2026-06-07T08:05:47.273719+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -19,12 +19,12 @@
       "id": "10274888",
       "name": "BlackDog",
       "liveStatus": "offline",
-      "title": "我希望她幸福她幸福她幸福",
+      "title": "人好懵",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-06-07T04:20:42.890090+00:00"
+      "fetchedAt": "2026-06-07T08:05:48.767109+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-06-07T04:20:42.890132+00:00"
+      "fetchedAt": "2026-06-07T08:05:48.767149+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "寻找华佗中",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026060712204335B17F6626AD7ACEF6B2&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1783398043&x-signature=zpXoF9l96p74ewfJ5%2FKB93klzwU%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026060712204335B17F6626AD7ACEF6B2&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1783398043&x-signature=T%2BJrG7gVQMfVOJUYGG1n2yWxmGs%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山3392",
       "avatar": "",
-      "fetchedAt": "2026-06-07T04:20:43.784456+00:00"
+      "fetchedAt": "2026-06-07T08:05:50.258877+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-06-07T04:20:44.937574+00:00"
+      "fetchedAt": "2026-06-07T08:05:51.387970+00:00"
     }
   ],
-  "updatedAt": "2026-06-07T04:20:44.937593+00:00"
+  "updatedAt": "2026-06-07T08:05:51.387990+00:00"
 }
