@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-06-07T15:50:45.528897+00:00"
+      "fetchedAt": "2026-06-07T17:10:19.251687+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "银川人好懵",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-06-07T15:50:46.473476+00:00"
+      "fetchedAt": "2026-06-07T17:10:20.387292+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-06-07T15:50:46.473512+00:00"
+      "fetchedAt": "2026-06-07T17:10:20.387331+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-06-07T15:50:47.592594+00:00"
+      "fetchedAt": "2026-06-07T17:10:21.814886+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-06-07T15:50:48.838726+00:00"
+      "fetchedAt": "2026-06-07T17:10:23.122722+00:00"
     }
   ],
-  "updatedAt": "2026-06-07T15:50:48.838742+00:00"
+  "updatedAt": "2026-06-07T17:10:23.122739+00:00"
 }
