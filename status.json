@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-06-08T07:02:05.068476+00:00"
+      "fetchedAt": "2026-06-08T12:06:30.803208+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "买点装备",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-06-08T07:02:06.354617+00:00"
+      "fetchedAt": "2026-06-08T12:06:32.159729+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-06-08T07:02:06.354654+00:00"
+      "fetchedAt": "2026-06-08T12:06:32.159770+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -40,12 +40,12 @@
       "id": "Ccc3392",
       "name": "抖音主播",
       "liveStatus": "offline",
-      "title": "寻找华佗中",
+      "title": "华佗治疗中",
       "viewerCount": 0,
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-06-08T07:02:08.429932+00:00"
+      "fetchedAt": "2026-06-08T12:06:33.282855+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-06-08T07:02:09.832456+00:00"
+      "fetchedAt": "2026-06-08T12:06:34.426264+00:00"
     }
   ],
-  "updatedAt": "2026-06-08T07:02:09.832473+00:00"
+  "updatedAt": "2026-06-08T12:06:34.426284+00:00"
 }
