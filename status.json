@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-06-25T01:51:35.447940+00:00"
+      "fetchedAt": "2026-06-25T06:04:28.297727+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-06-25T01:51:36.479042+00:00"
+      "fetchedAt": "2026-06-25T06:04:29.802767+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-06-25T01:51:36.479078+00:00"
+      "fetchedAt": "2026-06-25T06:04:29.802806+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-06-25T01:51:37.748480+00:00"
+      "fetchedAt": "2026-06-25T06:04:31.152910+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "offline",
-      "title": "大的来了。豹女夹死人",
+      "liveStatus": "live",
+      "title": "徒步day30",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-06-25T01:51:39.135561+00:00"
+      "fetchedAt": "2026-06-25T06:04:32.471695+00:00"
     }
   ],
-  "updatedAt": "2026-06-25T01:51:39.135577+00:00"
+  "updatedAt": "2026-06-25T06:04:32.471711+00:00"
 }
