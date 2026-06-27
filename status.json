@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-06-27T04:11:21.306697+00:00"
+      "fetchedAt": "2026-06-27T07:28:49.307509+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-06-27T04:11:22.349177+00:00"
+      "fetchedAt": "2026-06-27T07:28:50.378189+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-06-27T04:11:22.349219+00:00"
+      "fetchedAt": "2026-06-27T07:28:50.378233+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "忙着生活",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202606271211236D3734AAC6A584E343FF&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1785125483&x-signature=onDOiWPxQKHqHJ0Ta6iX3ygX%2Fp4%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202606271211236D3734AAC6A584E343FF&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1785125483&x-signature=WFccJJO%2FhCd6ca%2FGKpmXzq6QS3Y%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-06-27T04:11:24.025260+00:00"
+      "fetchedAt": "2026-06-27T07:28:51.387213+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-06-27T04:11:25.198935+00:00"
+      "fetchedAt": "2026-06-27T07:28:52.370570+00:00"
     }
   ],
-  "updatedAt": "2026-06-27T04:11:25.198956+00:00"
+  "updatedAt": "2026-06-27T07:28:52.370589+00:00"
 }
