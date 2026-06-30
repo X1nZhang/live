@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-06-30T13:24:48.598969+00:00"
+      "fetchedAt": "2026-06-30T16:07:49.120521+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
-      "title": "那里的足球很纯粹",
+      "liveStatus": "offline",
+      "title": "你是哥我是弟 你说咋滴就咋滴",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-06-30T13:24:49.976355+00:00"
+      "fetchedAt": "2026-06-30T16:07:50.083074+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-06-30T13:24:49.976394+00:00"
+      "fetchedAt": "2026-06-30T16:07:50.083113+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-06-30T13:24:52.511887+00:00"
+      "fetchedAt": "2026-06-30T16:07:51.382258+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -53,13 +53,13 @@
       "id": "3103670",
       "name": "烂牙",
       "liveStatus": "offline",
-      "title": "徒步day30",
+      "title": "泡面任务",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-06-30T13:24:54.095676+00:00"
+      "fetchedAt": "2026-06-30T16:07:52.380029+00:00"
     }
   ],
-  "updatedAt": "2026-06-30T13:24:54.095693+00:00"
+  "updatedAt": "2026-06-30T16:07:52.380047+00:00"
 }
