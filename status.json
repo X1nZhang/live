@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-05T21:38:23.214611+00:00"
+      "fetchedAt": "2026-07-05T22:40:30.335458+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "回不去了",
+      "liveStatus": "live",
+      "title": "相信ai 数据 科学",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-05T21:38:24.140799+00:00"
+      "fetchedAt": "2026-07-05T22:40:31.644896+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-05T21:38:24.140834+00:00"
+      "fetchedAt": "2026-07-05T22:40:31.644937+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-05T21:38:25.080064+00:00"
+      "fetchedAt": "2026-07-05T22:40:33.228740+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-05T21:38:26.346043+00:00"
+      "fetchedAt": "2026-07-05T22:40:34.463073+00:00"
     }
   ],
-  "updatedAt": "2026-07-05T21:38:26.346059+00:00"
+  "updatedAt": "2026-07-05T22:40:34.463091+00:00"
 }
