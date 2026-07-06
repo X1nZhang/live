@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-06T14:35:13.027000+00:00"
+      "fetchedAt": "2026-07-06T17:26:43.343774+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "相信ai 数据 科学",
+      "liveStatus": "live",
+      "title": "相信ai 科学，出发成都",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-06T14:35:14.700527+00:00"
+      "fetchedAt": "2026-07-06T17:26:44.601285+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-06T14:35:14.700566+00:00"
+      "fetchedAt": "2026-07-06T17:26:44.601324+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -40,12 +40,7 @@
       "id": "Ccc3392",
       "name": "抖音主播",
       "liveStatus": "offline",
-      "title": "忙着生活",
-      "viewerCount": 0,
-      "cover": "",
-      "uname": "冰山",
-      "avatar": "",
-      "fetchedAt": "2026-07-06T14:35:16.007708+00:00"
+      "fetchedAt": "2026-07-06T17:27:05.444286+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -53,13 +48,13 @@
       "id": "3103670",
       "name": "烂牙",
       "liveStatus": "offline",
-      "title": "明日出发成都",
+      "title": "小鸡没办法了",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-06T14:35:17.347536+00:00"
+      "fetchedAt": "2026-07-06T17:27:06.833473+00:00"
     }
   ],
-  "updatedAt": "2026-07-06T14:35:17.347555+00:00"
+  "updatedAt": "2026-07-06T17:27:06.833492+00:00"
 }
