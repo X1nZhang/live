@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-06T17:26:43.343774+00:00"
+      "fetchedAt": "2026-07-06T19:18:58.095389+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "相信ai 科学，出发成都",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-06T17:26:44.601285+00:00"
+      "fetchedAt": "2026-07-06T19:18:59.253234+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-06T17:26:44.601324+00:00"
+      "fetchedAt": "2026-07-06T19:18:59.253274+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -40,7 +40,12 @@
       "id": "Ccc3392",
       "name": "抖音主播",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-06T17:27:05.444286+00:00"
+      "title": "忙着生活",
+      "viewerCount": 0,
+      "cover": "",
+      "uname": "冰山",
+      "avatar": "",
+      "fetchedAt": "2026-07-06T19:19:00.359678+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -53,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-06T17:27:06.833473+00:00"
+      "fetchedAt": "2026-07-06T19:19:01.306958+00:00"
     }
   ],
-  "updatedAt": "2026-07-06T17:27:06.833492+00:00"
+  "updatedAt": "2026-07-06T19:19:01.306975+00:00"
 }
