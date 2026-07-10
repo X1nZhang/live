@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-09T23:52:26.128084+00:00"
+      "fetchedAt": "2026-07-10T02:55:23.141648+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-09T23:52:27.491042+00:00"
+      "fetchedAt": "2026-07-10T02:55:24.500097+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-09T23:52:27.491082+00:00"
+      "fetchedAt": "2026-07-10T02:55:24.500133+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-09T23:52:29.656019+00:00"
+      "fetchedAt": "2026-07-10T02:55:25.943713+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "小鸡没办法了",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-09T23:52:30.821944+00:00"
+      "fetchedAt": "2026-07-10T02:55:27.131870+00:00"
     }
   ],
-  "updatedAt": "2026-07-09T23:52:30.821976+00:00"
+  "updatedAt": "2026-07-10T02:55:27.131886+00:00"
 }
