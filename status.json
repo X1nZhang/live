@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-12T01:10:49.900268+00:00"
+      "fetchedAt": "2026-07-12T04:42:16.041380+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "顶不住了",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-12T01:10:51.328544+00:00"
+      "fetchedAt": "2026-07-12T04:42:17.287500+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-12T01:10:51.328576+00:00"
+      "fetchedAt": "2026-07-12T04:42:17.287536+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,10 +42,15 @@
       "liveStatus": "offline",
       "title": "忙着生活",
       "viewerCount": 0,
-      "cover": "",
+      "cover": {
+        "url_list": [
+          "https://p11-webcast-sign.douyinpic.com/webcast-cover/7500179916315691788~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260712124218209C9482275643206259&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1786423338&x-signature=4sgDPpo8iMTEh6tnNTduCPY%2FjEY%3D",
+          "https://p3-webcast-sign.douyinpic.com/webcast-cover/7500179916315691788~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260712124218209C9482275643206259&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1786423338&x-signature=Tmg%2FycZS9ZEG%2BIGTVMvZGUalFRk%3D"
+        ]
+      },
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-12T01:10:53.171047+00:00"
+      "fetchedAt": "2026-07-12T04:42:18.336604+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +63,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-12T01:10:54.739315+00:00"
+      "fetchedAt": "2026-07-12T04:42:19.386573+00:00"
     }
   ],
-  "updatedAt": "2026-07-12T01:10:54.739330+00:00"
+  "updatedAt": "2026-07-12T04:42:19.386589+00:00"
 }
