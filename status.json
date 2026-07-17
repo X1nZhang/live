@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-17T18:04:10.373898+00:00"
+      "fetchedAt": "2026-07-17T19:30:26.546697+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-17T18:04:11.919720+00:00"
+      "fetchedAt": "2026-07-17T19:30:27.984221+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-17T18:04:11.919757+00:00"
+      "fetchedAt": "2026-07-17T19:30:27.984252+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "见大姐",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202607180204126FC5B6EF630B3DCBD797&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1786903452&x-signature=WG%2BZ2VAT2O4hziuaVxQTFx3onIE%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202607180204126FC5B6EF630B3DCBD797&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1786903452&x-signature=gYjVpO0u0r5R2Pzzz6398G0E6jA%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-17T18:04:12.925879+00:00"
+      "fetchedAt": "2026-07-17T19:30:29.773801+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-17T18:04:14.419278+00:00"
+      "fetchedAt": "2026-07-17T19:30:31.195736+00:00"
     }
   ],
-  "updatedAt": "2026-07-17T18:04:14.419294+00:00"
+  "updatedAt": "2026-07-17T19:30:31.195747+00:00"
 }
