@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-18T09:50:21.849541+00:00"
+      "fetchedAt": "2026-07-18T10:56:45.390137+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "团队解散了",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-18T09:50:23.067116+00:00"
+      "fetchedAt": "2026-07-18T10:56:46.783640+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-18T09:50:23.067152+00:00"
+      "fetchedAt": "2026-07-18T10:56:46.783680+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-18T09:50:24.138785+00:00"
+      "fetchedAt": "2026-07-18T10:56:47.953291+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "黑屏看会儿比赛",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-18T09:50:25.350087+00:00"
+      "fetchedAt": "2026-07-18T10:56:48.856238+00:00"
     }
   ],
-  "updatedAt": "2026-07-18T09:50:25.350103+00:00"
+  "updatedAt": "2026-07-18T10:56:48.856255+00:00"
 }
