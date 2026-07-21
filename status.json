@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-21T07:17:22.365558+00:00"
+      "fetchedAt": "2026-07-21T09:55:19.370461+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-21T07:17:23.302621+00:00"
+      "fetchedAt": "2026-07-21T09:55:20.322597+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-21T07:17:23.302660+00:00"
+      "fetchedAt": "2026-07-21T09:55:20.322630+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -40,12 +40,17 @@
       "id": "Ccc3392",
       "name": "抖音主播",
       "liveStatus": "offline",
-      "title": "见大姐",
+      "title": "非本人直播",
       "viewerCount": 0,
-      "cover": "",
+      "cover": {
+        "url_list": [
+          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026072117552183D4099AC3E8EC8BFA7E&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1787219721&x-signature=S%2BSDoNnp5Oh5OmK8KdIjKDhOssA%3D",
+          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026072117552183D4099AC3E8EC8BFA7E&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1787219721&x-signature=NbVE0zTofkzv7OfFWMlRG3mlsWA%3D"
+        ]
+      },
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-21T07:17:24.214778+00:00"
+      "fetchedAt": "2026-07-21T09:55:21.956021+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -53,13 +58,13 @@
       "id": "3103670",
       "name": "烂牙",
       "liveStatus": "offline",
-      "title": "吃个火锅",
+      "title": "剪线成了大问题",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-21T07:17:25.572435+00:00"
+      "fetchedAt": "2026-07-21T09:55:22.879137+00:00"
     }
   ],
-  "updatedAt": "2026-07-21T07:17:25.572452+00:00"
+  "updatedAt": "2026-07-21T09:55:22.879151+00:00"
 }
