@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-29T22:40:37.956814+00:00"
+      "fetchedAt": "2026-07-29T23:44:29.716742+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "吃点",
+      "liveStatus": "live",
+      "title": "睡不着",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-29T22:40:39.076953+00:00"
+      "fetchedAt": "2026-07-29T23:44:30.794000+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-29T22:40:39.076992+00:00"
+      "fetchedAt": "2026-07-29T23:44:30.794058+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-29T22:40:40.154104+00:00"
+      "fetchedAt": "2026-07-29T23:44:32.000129+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-29T22:40:40.991645+00:00"
+      "fetchedAt": "2026-07-29T23:44:32.835017+00:00"
     }
   ],
-  "updatedAt": "2026-07-29T22:40:40.991661+00:00"
+  "updatedAt": "2026-07-29T23:44:32.835058+00:00"
 }
