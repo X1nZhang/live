@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-30T13:12:42.246898+00:00"
+      "fetchedAt": "2026-07-30T15:25:42.039485+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-30T13:12:43.351231+00:00"
+      "fetchedAt": "2026-07-30T15:25:43.275108+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-30T13:12:43.351270+00:00"
+      "fetchedAt": "2026-07-30T15:25:43.275143+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,10 +42,15 @@
       "liveStatus": "offline",
       "title": "约见老师学习生意经",
       "viewerCount": 0,
-      "cover": "",
+      "cover": {
+        "url_list": [
+          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202607302325444577FDB1E50596189BB7&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788017144&x-signature=lbNXz%2F89Mj0JOYR9%2BqY0keK7JHs%3D",
+          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/6a1b10f313ae3bfde88fa1930517ebb2~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202607302325444577FDB1E50596189BB7&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788017144&x-signature=8%2B8WCtRy1lFxMpsNM40CO%2Fujh%2FA%3D"
+        ]
+      },
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-30T13:12:44.751071+00:00"
+      "fetchedAt": "2026-07-30T15:25:44.482175+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +63,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-30T13:12:46.100211+00:00"
+      "fetchedAt": "2026-07-30T15:25:46.006587+00:00"
     }
   ],
-  "updatedAt": "2026-07-30T13:12:46.100228+00:00"
+  "updatedAt": "2026-07-30T15:25:46.006602+00:00"
 }
