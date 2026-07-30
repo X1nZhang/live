@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-07-30T18:42:23.404655+00:00"
+      "fetchedAt": "2026-07-30T20:06:44.747143+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "没办法了",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-07-30T18:42:24.731896+00:00"
+      "fetchedAt": "2026-07-30T20:06:45.963947+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-07-30T18:42:24.731932+00:00"
+      "fetchedAt": "2026-07-30T20:06:45.963986+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,10 +42,15 @@
       "liveStatus": "offline",
       "title": "约见老师学习生意经",
       "viewerCount": 0,
-      "cover": "",
+      "cover": {
+        "url_list": [
+          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260731040646275A992F11091021460E&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788034006&x-signature=ANzx7B1fxa29gS9vJKsmT7FjFlg%3D",
+          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260731040646275A992F11091021460E&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788034006&x-signature=X6vKIkza8SML96hFJIeX2YpN518%3D"
+        ]
+      },
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-07-30T18:42:26.671822+00:00"
+      "fetchedAt": "2026-07-30T20:06:47.129895+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +63,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-07-30T18:42:28.096119+00:00"
+      "fetchedAt": "2026-07-30T20:06:48.245023+00:00"
     }
   ],
-  "updatedAt": "2026-07-30T18:42:28.096136+00:00"
+  "updatedAt": "2026-07-30T20:06:48.245042+00:00"
 }
