@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-04T04:31:53.888354+00:00"
+      "fetchedAt": "2026-08-04T07:19:45.391159+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -19,12 +19,12 @@
       "id": "10274888",
       "name": "BlackDog",
       "liveStatus": "offline",
-      "title": "刚睡醒",
+      "title": "派派已派派",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-04T04:31:55.291932+00:00"
+      "fetchedAt": "2026-08-04T07:19:46.310873+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-04T04:31:55.291972+00:00"
+      "fetchedAt": "2026-08-04T07:19:46.310911+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "约见老师学习生意经",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608041231565B98F32128892D57C0A2&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788409916&x-signature=zhc%2BgNlIFfpG9Tqgv1FPYR17EFk%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608041231565B98F32128892D57C0A2&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788409916&x-signature=mUUmmMfX35cQ2QTuP0R4c4dXmoo%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-04T04:31:56.293341+00:00"
+      "fetchedAt": "2026-08-04T07:19:47.220674+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-04T04:31:57.446581+00:00"
+      "fetchedAt": "2026-08-04T07:19:48.033352+00:00"
     }
   ],
-  "updatedAt": "2026-08-04T04:31:57.446600+00:00"
+  "updatedAt": "2026-08-04T07:19:48.033368+00:00"
 }
