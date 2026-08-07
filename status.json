@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-07T17:27:54.114801+00:00"
+      "fetchedAt": "2026-08-07T18:26:04.525136+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "一会进城办事",
+      "liveStatus": "live",
+      "title": "最后的幸存者",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-07T17:27:55.426808+00:00"
+      "fetchedAt": "2026-08-07T18:26:05.744199+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-07T17:27:55.426870+00:00"
+      "fetchedAt": "2026-08-07T18:26:05.744239+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-07T17:27:57.303011+00:00"
+      "fetchedAt": "2026-08-07T18:26:06.887344+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-07T17:27:58.685769+00:00"
+      "fetchedAt": "2026-08-07T18:26:08.125557+00:00"
     }
   ],
-  "updatedAt": "2026-08-07T17:27:58.685787+00:00"
+  "updatedAt": "2026-08-07T18:26:08.125574+00:00"
 }
