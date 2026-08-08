@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-08T18:04:13.371637+00:00"
+      "fetchedAt": "2026-08-08T18:55:29.004351+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-08T18:04:14.880426+00:00"
+      "fetchedAt": "2026-08-08T18:55:30.302451+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-08T18:04:14.880462+00:00"
+      "fetchedAt": "2026-08-08T18:55:30.302493+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -44,27 +44,27 @@
       "viewerCount": 0,
       "cover": {
         "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026080902041640589B04204E56A83239&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788804256&x-signature=RBHBlg%2Fhkf%2BDKr4PSZix38cvnj8%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026080902041640589B04204E56A83239&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788804256&x-signature=OrZlhYqyrCPA5N%2FG43lAQZoC4D8%3D"
+          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260809025531530D61FC697260842BDA&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788807332&x-signature=bILUF%2BXJcvX8regx%2F2KAQENh2Tc%3D",
+          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260809025531530D61FC697260842BDA&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788807332&x-signature=j7nski%2BjmfSRWdckCAmg9Tkh5YI%3D"
         ]
       },
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-08T18:04:16.471777+00:00"
+      "fetchedAt": "2026-08-08T18:55:32.282445+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "oof在深圳",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-08T18:04:17.434790+00:00"
+      "fetchedAt": "2026-08-08T18:55:33.679780+00:00"
     }
   ],
-  "updatedAt": "2026-08-08T18:04:17.434806+00:00"
+  "updatedAt": "2026-08-08T18:55:33.679799+00:00"
 }
