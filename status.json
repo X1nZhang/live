@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-09T21:57:06.851443+00:00"
+      "fetchedAt": "2026-08-09T22:40:42.459838+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-09T21:57:07.886116+00:00"
+      "fetchedAt": "2026-08-09T22:40:43.424257+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-09T21:57:07.886148+00:00"
+      "fetchedAt": "2026-08-09T22:40:43.424294+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-09T21:57:08.907616+00:00"
+      "fetchedAt": "2026-08-09T22:40:44.476961+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "oof出发长沙找周强",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-09T21:57:10.266072+00:00"
+      "fetchedAt": "2026-08-09T22:40:45.539337+00:00"
     }
   ],
-  "updatedAt": "2026-08-09T21:57:10.266088+00:00"
+  "updatedAt": "2026-08-09T22:40:45.539351+00:00"
 }
