@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-09T16:01:39.661787+00:00"
+      "fetchedAt": "2026-08-09T16:49:30.467253+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-09T16:01:40.879763+00:00"
+      "fetchedAt": "2026-08-09T16:49:31.910411+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-09T16:01:40.879801+00:00"
+      "fetchedAt": "2026-08-09T16:49:31.910447+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-09T16:01:42.393799+00:00"
+      "fetchedAt": "2026-08-09T16:49:33.831761+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "oof在深圳赚碗猪脚饭。",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-09T16:01:43.280524+00:00"
+      "fetchedAt": "2026-08-09T16:49:35.145283+00:00"
     }
   ],
-  "updatedAt": "2026-08-09T16:01:43.280542+00:00"
+  "updatedAt": "2026-08-09T16:49:35.145299+00:00"
 }
