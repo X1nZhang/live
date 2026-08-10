@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-10T05:03:18.039247+00:00"
+      "fetchedAt": "2026-08-10T06:19:56.023012+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-10T05:03:18.993514+00:00"
+      "fetchedAt": "2026-08-10T06:19:57.478575+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-10T05:03:18.993548+00:00"
+      "fetchedAt": "2026-08-10T06:19:57.478615+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "约见老师学习生意经",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/webcast-cover/7500179916315691788~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608101303203DA429FAE640AB0C47CD&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788930200&x-signature=mUZBeBWjuGWML8psd%2BOv3WpbofE%3D",
-          "https://p3-webcast-sign.douyinpic.com/webcast-cover/7500179916315691788~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608101303203DA429FAE640AB0C47CD&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1788930200&x-signature=nlO8jBou9KunZj6w4N1gBpc0%2Bhw%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-10T05:03:20.479146+00:00"
+      "fetchedAt": "2026-08-10T06:19:58.967640+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-10T05:03:21.789593+00:00"
+      "fetchedAt": "2026-08-10T06:20:00.322369+00:00"
     }
   ],
-  "updatedAt": "2026-08-10T05:03:21.789610+00:00"
+  "updatedAt": "2026-08-10T06:20:00.322387+00:00"
 }
