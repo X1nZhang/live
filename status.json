@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-11T02:24:33.072231+00:00"
+      "fetchedAt": "2026-08-11T04:01:34.729900+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "彻底倒下",
+      "liveStatus": "live",
+      "title": "绝航修脚绝活哥",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-11T02:24:34.444117+00:00"
+      "fetchedAt": "2026-08-11T04:01:35.984331+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-11T02:24:34.444156+00:00"
+      "fetchedAt": "2026-08-11T04:01:35.984365+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-11T02:24:35.641971+00:00"
+      "fetchedAt": "2026-08-11T04:01:37.258498+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-11T02:24:37.224872+00:00"
+      "fetchedAt": "2026-08-11T04:01:38.432710+00:00"
     }
   ],
-  "updatedAt": "2026-08-11T02:24:37.224894+00:00"
+  "updatedAt": "2026-08-11T04:01:38.432724+00:00"
 }
