@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-12T07:11:54.894196+00:00"
+      "fetchedAt": "2026-08-12T08:40:58.452839+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "吃点东西",
+      "liveStatus": "live",
+      "title": "工作工作",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-12T07:11:56.370065+00:00"
+      "fetchedAt": "2026-08-12T08:40:59.954603+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-12T07:11:56.370105+00:00"
+      "fetchedAt": "2026-08-12T08:40:59.954642+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-12T07:11:57.838068+00:00"
+      "fetchedAt": "2026-08-12T08:41:01.293636+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "offline",
-      "title": "oof在绿皮去深圳",
+      "liveStatus": "live",
+      "title": "oof在深圳流浪",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-12T07:11:59.296263+00:00"
+      "fetchedAt": "2026-08-12T08:41:02.662661+00:00"
     }
   ],
-  "updatedAt": "2026-08-12T07:11:59.296281+00:00"
+  "updatedAt": "2026-08-12T08:41:02.662682+00:00"
 }
