@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-13T07:03:21.256400+00:00"
+      "fetchedAt": "2026-08-13T08:41:26.101859+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "这把大了",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-13T07:03:22.333870+00:00"
+      "fetchedAt": "2026-08-13T08:41:27.137138+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-13T07:03:22.333912+00:00"
+      "fetchedAt": "2026-08-13T08:41:27.137180+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-13T07:03:23.551326+00:00"
+      "fetchedAt": "2026-08-13T08:41:28.235024+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-13T07:03:24.745007+00:00"
+      "fetchedAt": "2026-08-13T08:41:29.493209+00:00"
     }
   ],
-  "updatedAt": "2026-08-13T07:03:24.745026+00:00"
+  "updatedAt": "2026-08-13T08:41:29.493225+00:00"
 }
