@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-13T17:16:21.573018+00:00"
+      "fetchedAt": "2026-08-13T18:11:59.025866+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-13T17:16:22.935646+00:00"
+      "fetchedAt": "2026-08-13T18:12:00.283286+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-13T17:16:22.935685+00:00"
+      "fetchedAt": "2026-08-13T18:12:00.283323+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "约见老师学习生意经，剧情表演",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026081401162331590A0B648CB1A92583&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1789233384&x-signature=hmqMWcE7pCkeKYNMlSyvZr%2BXh6A%3D",
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=2026081401162331590A0B648CB1A92583&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1789233384&x-signature=cjgYYSfE%2FvknxN7kL0JLFFZDu4A%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-13T17:16:24.194976+00:00"
+      "fetchedAt": "2026-08-13T18:12:01.436255+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-13T17:16:25.474094+00:00"
+      "fetchedAt": "2026-08-13T18:12:02.656653+00:00"
     }
   ],
-  "updatedAt": "2026-08-13T17:16:25.474112+00:00"
+  "updatedAt": "2026-08-13T18:12:02.656669+00:00"
 }
