@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-16T14:41:20.313978+00:00"
+      "fetchedAt": "2026-08-16T15:01:19.216804+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "他02年的我玩不过她",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-16T14:41:21.597822+00:00"
+      "fetchedAt": "2026-08-16T15:01:20.065615+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-16T14:41:21.597861+00:00"
+      "fetchedAt": "2026-08-16T15:01:20.065653+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-16T14:41:23.955989+00:00"
+      "fetchedAt": "2026-08-16T15:01:21.010061+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-16T14:41:25.351170+00:00"
+      "fetchedAt": "2026-08-16T15:01:22.086409+00:00"
     }
   ],
-  "updatedAt": "2026-08-16T14:41:25.351188+00:00"
+  "updatedAt": "2026-08-16T15:01:22.086428+00:00"
 }
