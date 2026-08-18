@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-18T12:15:25.643883+00:00"
+      "fetchedAt": "2026-08-18T13:13:36.697426+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-18T12:15:26.770137+00:00"
+      "fetchedAt": "2026-08-18T13:13:37.824353+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-18T12:15:26.770182+00:00"
+      "fetchedAt": "2026-08-18T13:13:37.824393+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -44,13 +44,13 @@
       "viewerCount": 0,
       "cover": {
         "url_list": [
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260818201527033FF53DB1727978EC96&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1789647327&x-signature=tnArI9lcdtR9UyrG4PfE8NQ%2FCb4%3D",
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=20260818201527033FF53DB1727978EC96&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1789647327&x-signature=T0Bmb7qrjnk2QSkXFuSrq9%2Fm%2FaE%3D"
+          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608182113395A4A05E566F7DC60961E&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1789650819&x-signature=5HBD02GxGBJTBpNzXNGN96ssJD4%3D",
+          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608182113395A4A05E566F7DC60961E&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1789650819&x-signature=6BHWtukNUpArIKb%2F1BdY7DoiRME%3D"
         ]
       },
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-18T12:15:27.936173+00:00"
+      "fetchedAt": "2026-08-18T13:13:39.577755+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +63,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-18T12:15:28.940269+00:00"
+      "fetchedAt": "2026-08-18T13:13:40.506106+00:00"
     }
   ],
-  "updatedAt": "2026-08-18T12:15:28.940288+00:00"
+  "updatedAt": "2026-08-18T13:13:40.506131+00:00"
 }
