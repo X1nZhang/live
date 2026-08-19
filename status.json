@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-19T11:18:19.978252+00:00"
+      "fetchedAt": "2026-08-19T11:45:56.384125+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "借50生意周转",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-19T11:18:21.433699+00:00"
+      "fetchedAt": "2026-08-19T11:45:57.776672+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-19T11:18:21.433747+00:00"
+      "fetchedAt": "2026-08-19T11:45:57.776712+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-19T11:18:22.327194+00:00"
+      "fetchedAt": "2026-08-19T11:45:59.291529+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-19T11:18:23.890598+00:00"
+      "fetchedAt": "2026-08-19T11:46:00.800374+00:00"
     }
   ],
-  "updatedAt": "2026-08-19T11:18:23.890615+00:00"
+  "updatedAt": "2026-08-19T11:46:00.800392+00:00"
 }
