@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-21T15:18:08.633908+00:00"
+      "fetchedAt": "2026-08-21T15:54:50.189030+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "晚点看会cs",
+      "liveStatus": "live",
+      "title": "小蜜蜂打绿龙！！！",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-21T15:18:10.159660+00:00"
+      "fetchedAt": "2026-08-21T15:54:51.190913+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-21T15:18:10.159698+00:00"
+      "fetchedAt": "2026-08-21T15:54:51.190951+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-21T15:18:11.378382+00:00"
+      "fetchedAt": "2026-08-21T15:54:52.746925+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-21T15:18:12.644313+00:00"
+      "fetchedAt": "2026-08-21T15:54:53.498615+00:00"
     }
   ],
-  "updatedAt": "2026-08-21T15:18:12.644329+00:00"
+  "updatedAt": "2026-08-21T15:54:53.498630+00:00"
 }
