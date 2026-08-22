@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-22T20:56:33.717613+00:00"
+      "fetchedAt": "2026-08-22T21:29:17.074467+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "被donk打服了",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-22T20:56:34.895841+00:00"
+      "fetchedAt": "2026-08-22T21:29:18.300852+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-22T20:56:34.895878+00:00"
+      "fetchedAt": "2026-08-22T21:29:18.300892+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-22T20:56:36.279093+00:00"
+      "fetchedAt": "2026-08-22T21:29:20.088413+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-22T20:56:37.521895+00:00"
+      "fetchedAt": "2026-08-22T21:29:21.041849+00:00"
     }
   ],
-  "updatedAt": "2026-08-22T20:56:37.521913+00:00"
+  "updatedAt": "2026-08-22T21:29:21.041865+00:00"
 }
