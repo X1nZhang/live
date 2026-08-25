@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-25T15:53:27.958562+00:00"
+      "fetchedAt": "2026-08-25T16:38:37.592077+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "live",
+      "liveStatus": "offline",
       "title": "三角洲背刺王",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-25T15:53:29.174107+00:00"
+      "fetchedAt": "2026-08-25T16:38:38.864773+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-25T15:53:29.174147+00:00"
+      "fetchedAt": "2026-08-25T16:38:38.864811+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-25T15:53:30.043129+00:00"
+      "fetchedAt": "2026-08-25T16:38:40.258382+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-25T15:53:31.521902+00:00"
+      "fetchedAt": "2026-08-25T16:38:41.549543+00:00"
     }
   ],
-  "updatedAt": "2026-08-25T15:53:31.521921+00:00"
+  "updatedAt": "2026-08-25T16:38:41.549560+00:00"
 }
