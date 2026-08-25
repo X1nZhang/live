@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-25T18:26:36.746617+00:00"
+      "fetchedAt": "2026-08-25T19:09:42.754543+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "三角洲背刺王",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-25T18:26:37.965528+00:00"
+      "fetchedAt": "2026-08-25T19:09:43.804955+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-25T18:26:37.965568+00:00"
+      "fetchedAt": "2026-08-25T19:09:43.804990+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -42,15 +42,10 @@
       "liveStatus": "offline",
       "title": "约见老师学习生意经，剧情表演",
       "viewerCount": 0,
-      "cover": {
-        "url_list": [
-          "https://p3-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608260226393ECDA516AAF4D86B70B7&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1790274399&x-signature=G6ZnauGNyZN8Ya3ot0M%2FvS594DI%3D",
-          "https://p11-webcast-sign.douyinpic.com/image-cut-tos-priv/cf35b43af7c93753add03ee427179fea~tplv-qz53dukwul-common-resize:0:0.image?biz_tag=app_6383_webcast&from=webcast.room.pack&l=202608260226393ECDA516AAF4D86B70B7&lk3s=39e7556e&s=enter_room&sc=webcast_cover&x-expires=1790274399&x-signature=92rKr0IK1dm83KbbbwfDLTZkX7w%3D"
-        ]
-      },
+      "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-25T18:26:39.468805+00:00"
+      "fetchedAt": "2026-08-25T19:09:44.771515+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -63,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-25T18:26:40.748791+00:00"
+      "fetchedAt": "2026-08-25T19:09:45.763413+00:00"
     }
   ],
-  "updatedAt": "2026-08-25T18:26:40.748808+00:00"
+  "updatedAt": "2026-08-25T19:09:45.763429+00:00"
 }
