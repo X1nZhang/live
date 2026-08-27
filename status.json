@@ -11,20 +11,20 @@
       "cover": "",
       "uname": "李逍遥重头再来",
       "avatar": "",
-      "fetchedAt": "2026-08-27T02:26:44.480498+00:00"
+      "fetchedAt": "2026-08-27T13:02:43.397632+00:00"
     },
     {
       "key": "bilibili:10274888",
       "platform": "bilibili",
       "id": "10274888",
       "name": "BlackDog",
-      "liveStatus": "offline",
-      "title": "时时差乱乱的",
+      "liveStatus": "live",
+      "title": "出门吃饭",
       "viewerCount": 0,
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-08-27T02:26:45.713312+00:00"
+      "fetchedAt": "2026-08-27T13:02:44.493329+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-08-27T02:26:45.713355+00:00"
+      "fetchedAt": "2026-08-27T13:02:44.493362+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,7 +45,7 @@
       "cover": "",
       "uname": "冰山",
       "avatar": "",
-      "fetchedAt": "2026-08-27T02:26:47.350556+00:00"
+      "fetchedAt": "2026-08-27T13:02:45.804184+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -58,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-08-27T02:26:48.590543+00:00"
+      "fetchedAt": "2026-08-27T13:02:46.947115+00:00"
     }
   ],
-  "updatedAt": "2026-08-27T02:26:48.590562+00:00"
+  "updatedAt": "2026-08-27T13:02:46.947129+00:00"
 }
