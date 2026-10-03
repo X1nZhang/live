@@ -5,13 +5,13 @@
       "platform": "bilibili",
       "id": "1742439556",
       "name": "激素猪",
-      "liveStatus": "offline",
+      "liveStatus": "live",
       "title": "爪爪陪你看电影",
       "viewerCount": 0,
       "cover": "",
       "uname": "李逍遥放映室",
       "avatar": "",
-      "fetchedAt": "2026-10-03T18:38:38.409205+00:00"
+      "fetchedAt": "2026-10-03T21:47:33.194070+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-10-03T18:38:39.847180+00:00"
+      "fetchedAt": "2026-10-03T21:47:34.642512+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-10-03T18:38:39.847222+00:00"
+      "fetchedAt": "2026-10-03T21:47:34.642559+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -40,7 +40,12 @@
       "id": "Ccc3392",
       "name": "抖音主播",
       "liveStatus": "offline",
-      "fetchedAt": "2026-10-03T18:39:01.112892+00:00"
+      "title": "安全路段拍摄，绿布表演请勿模仿",
+      "viewerCount": 0,
+      "cover": "",
+      "uname": "Ccc3392",
+      "avatar": "",
+      "fetchedAt": "2026-10-03T21:47:36.303844+00:00"
     },
     {
       "key": "bilibili:3103670",
@@ -53,8 +58,8 @@
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-10-03T18:39:02.478314+00:00"
+      "fetchedAt": "2026-10-03T21:47:37.528234+00:00"
     }
   ],
-  "updatedAt": "2026-10-03T18:39:02.478335+00:00"
+  "updatedAt": "2026-10-03T21:47:37.528252+00:00"
 }
