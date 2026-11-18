@@ -11,7 +11,7 @@
       "cover": "",
       "uname": "李逍遥放映室",
       "avatar": "",
-      "fetchedAt": "2026-11-17T22:05:23.857170+00:00"
+      "fetchedAt": "2026-11-18T03:41:45.490885+00:00"
     },
     {
       "key": "bilibili:10274888",
@@ -24,7 +24,7 @@
       "cover": "",
       "uname": "Lisa的嘴",
       "avatar": "",
-      "fetchedAt": "2026-11-17T22:05:25.239537+00:00"
+      "fetchedAt": "2026-11-18T03:41:46.466607+00:00"
     },
     {
       "key": "kuaishou:2353452183",
@@ -32,7 +32,7 @@
       "id": "2353452183",
       "name": "快手主播(封禁ing)",
       "liveStatus": "offline",
-      "fetchedAt": "2026-11-17T22:05:25.239578+00:00"
+      "fetchedAt": "2026-11-18T03:41:46.466642+00:00"
     },
     {
       "key": "douyin:Ccc3392",
@@ -45,21 +45,21 @@
       "cover": "",
       "uname": "Ccc3392",
       "avatar": "",
-      "fetchedAt": "2026-11-17T22:05:26.506862+00:00"
+      "fetchedAt": "2026-11-18T03:41:47.571323+00:00"
     },
     {
       "key": "bilibili:3103670",
       "platform": "bilibili",
       "id": "3103670",
       "name": "烂牙",
-      "liveStatus": "offline",
-      "title": "lose",
+      "liveStatus": "live",
+      "title": "魔抓任务",
       "viewerCount": 0,
       "cover": "",
       "uname": "地上徒步-610",
       "avatar": "",
-      "fetchedAt": "2026-11-17T22:05:27.882949+00:00"
+      "fetchedAt": "2026-11-18T03:41:48.649299+00:00"
     }
   ],
-  "updatedAt": "2026-11-17T22:05:27.882986+00:00"
+  "updatedAt": "2026-11-18T03:41:48.649314+00:00"
 }
